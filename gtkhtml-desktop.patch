@@ -1,0 +1,53 @@
+diff -ur gtkhtml-1.0.4.orig/capplet/gtkhtml-properties.desktop gtkhtml-1.0.4/capplet/gtkhtml-properties.desktop
+--- gtkhtml-1.0.4.orig/capplet/gtkhtml-properties.desktop	Thu Dec 25 00:59:45 2003
++++ gtkhtml-1.0.4/capplet/gtkhtml-properties.desktop	Thu Dec 25 01:26:49 2003
+@@ -1,33 +1,35 @@
+ [Desktop Entry]
+ Name=HTML Viewer
++Name[da]=HTML-visning
+ Name[es]=Visor de HTML
+ Name[fi]=HTML-katselin
+ Name[fr]=Visualiseur HTML
+ Name[gl]=Visualizador HTML
+ Name[it]=Visualizzatore HTML
+-Name[ja]=HTML•”•Â°º•¢
++Name[ja]=HTML„Éì„É•„Éº„Ç¢
+ Name[no]=HTML-visning
+-Name[da]=HTML-visning
++Name[pl]=PrzeglƒÖdarka HTML-a
+ Name[pt_BR]=Visualizador de HTML
+-Name[pl]=Przegl±darka HTML-a
+-Name[sk]=PrehliadaË HTML
++Name[sk]=Prehliadaƒç HTML
+ Name[sl]=Pregledovalnik HTML
+-Name[uk]=≈“≈«Ã—ƒ HTML
++Name[uk]=–ü–µ—Ä–µ–≥–ª—è–¥ HTML
+ Comment=HTML Viewer properties
++Comment[da]=Egenskaber for visning af HTML
+ Comment[es]=Propriedades del visor de HTML
+ Comment[fi]=HTML-katselimen asetukset
+-Comment[fr]=PropriÈtÈs du visualiseur HTML
++Comment[fr]=Propri√©t√©s du visualiseur HTML
+ Comment[gl]=Propiedades do Visualizador HTML
+-Comment[it]=Propriet‡ visualizzatore HTML
+-Comment[ja]=HTML•”•Â°º•¢ •◊•Ì•—•∆•£
++Comment[it]=Propriet√† visualizzatore HTML
++Comment[ja]=HTML„Éì„É•„Éº„Ç¢ „Éó„É≠„Éë„ÉÜ„Ç£
+ Comment[no]=Egenskaper for visning av HTML
+-Comment[da]=Egenskaber for visning af HTML
++Comment[pl]=W≈Ça≈õciwo≈õci przeglƒÖdarki HTML-a
+ Comment[pt_BR]=Propriedades do visualizador de HTML
+-Comment[pl]=W≥a∂ciwo∂ci przegl±darki HTML-a
+-Comment[sk]=Vlasnosti prehliadaËa HTML
++Comment[sk]=Vlasnosti prehliadaƒça HTML
+ Comment[sl]=Lastnosti pregledovalnika HTML
+-Comment[uk]=˜Ã¡”‘…◊œ”‘¶ –“œ«“¡Õ… –≈“≈«Ã—ƒ’ HTML
++Comment[uk]=–í–ª–∞—Å—Ç–∏–≤–æ—Å—Ç—ñ –ø—Ä–æ–≥—Ä–∞–º–∏ –ø–µ—Ä–µ–≥–ª—è–¥—É HTML
+ Exec=gtkhtml-properties-capplet
+-Icon=@ICONSDIR@/html-viewer.png
+-Terminal=0
++Icon=html-viewer.png
++Terminal=false
+ Type=Application
++Encoding=UTF-8
++# vi: encoding=utf-8
