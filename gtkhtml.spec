@@ -5,12 +5,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.6.0
+Version:	3.6.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	a53378f57544ef2e2e7b40616dc237a1
+# Source0-md5:	df30dbbd12b6a3f1355a9a82aa430781
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-gtkhtml-stream.h.patch
 Patch2:		%{name}-link.patch
@@ -18,21 +18,21 @@ Patch3:		%{name}-crash.patch
 BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.8.0
-BuildRequires:	gal-devel >= 1:2.4.0
+BuildRequires:	gail-devel >= 1.8.2
+BuildRequires:	gal-devel >= 1:2.4.1
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-icon-theme >= 2.10.0
-BuildRequires:	gtk+2-devel >= 2:2.6.2
-BuildRequires:	intltool >= 0.30
-BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	intltool >= 0.33
+BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnomeprintui-devel >= 2.10.0
 BuildRequires:	libgnomeui-devel >= 2.10.0
-BuildRequires:	libsoup-devel >= 2.2.2
+BuildRequires:	libsoup-devel >= 2.2.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	gal >= 1:2.3.5
+Requires:	gal >= 1:2.4.1
 Requires:	gnome-icon-theme >= 2.10.0
-Requires:	gtk+2 >= 2:2.6.2
+Requires:	gtk+2 >= 2:2.6.4
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,8 +70,8 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gail-devel >= 1.8.0
-Requires:	gal-devel >= 1:2.4.0
+Requires:	gail-devel >= 1.8.2
+Requires:	gal-devel >= 1:2.4.1
 Requires:	libgnomeprintui-devel >= 2.10.0
 Requires:	libgnomeui-devel >= 2.10.0
 Obsoletes:	libgtkhtml20-devel
