@@ -1,5 +1,6 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
+Summary(pt_BR):	Biblioteca gtkhtml
 Name:		gtkhtml
 Version:	0.16.0
 Release:	1
@@ -9,25 +10,26 @@ Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
 Group(pt):	X11/Bibliotecas
 Group(ru):	X11/‚…¬Ã…œ‘≈À…
 Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
-Patch2:		%{name}-gtkhtml-stream.h.patch
+Patch2:		%{name}-%{name}-stream.h.patch
+BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
-BuildRequires:	gal-devel >= 0.15.99.9
+BuildRequires:	gal-devel >= 0.18
 BuildRequires:	gdk-pixbuf-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.29
 BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-devel
-BuildRequires:	GConf-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,14 +47,21 @@ GtkHTML jesrt "lekk±" bibilotek± do renderingu, drukowania i edycji
 HTML. Pierwotne ºrÛd≥a tej biblioteki bazuj± na KHTMLW ale teraz
 GtkHTML jest rozwijana niezaleønie od KHTMLW,
 
+%description -l pt_BR
+Este È o GtkHTML, uma ferramenta de renderizar/imprimir/editar HTML
+leve e pequeno
+
 %package devel
 Summary:	Header files and etc neccessary to develop gtkhtml applications
+Summary(es):	Bibliotecas, archivos de inclusiÛn, e etc. para desarrollar aplicaciones gtkhtml
 Summary(pl):	Pliki nag≥Ûwkowe i inne nizbÍdne do tworzenia aplikacji uøywaj±cych gtkhtml
+Summary(pt_BR):	Bibliotecas, arquivos de inclus„o, e etc para desenvolver aplicaÁıes gtkhtml
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
 Group(pt):	X11/Bibliotecas
 Group(ru):	X11/‚…¬Ã…œ‘≈À…
 Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
@@ -62,18 +71,29 @@ Requires:	gnome-print-devel >= 0.29
 %description devel
 Header files and etc neccessary to develop gtkhtml applications.
 
-%description devel
+%description -l es devel
+Bibliotecas, archivos de inclusiÛn, y etc para desarrollar
+aplicaciones gtkhtml.
+
+%description -l pl devel
 Pliki nag≥Ûwkowe i reszta niezbÍdnych przy tworzeniu aplikacji
 wykorzystujacych gtkhtml.
 
+%description -l pt_BR devel
+Bibliotecas, arquivos de inclus„o, e etc para desenvolver aplicaÁıes
+gtkhtml.
+
 %package static
 Summary:	Static gtkhtml libraries
+Summary(es):	Bibliotecas est·ticas para desarrollar aplicaciones gtkhtml
 Summary(pl):	Biblioteki statyczne gtkhtml
+Summary(pt_BR):	Bibliotecas est·ticas para desenvolver aplicaÁıes gtkhtml
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
 Group(pt):	X11/Bibliotecas
 Group(ru):	X11/‚…¬Ã…œ‘≈À…
 Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
@@ -82,8 +102,14 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static gtkhtml libraries.
 
+%description -l es static
+Bibliotecas est·ticas para desarrollar aplicaciones gtkhtml.
+
 %description -l pl static
 Biblioteki statyczne gtkhtml.
+
+%description -l pt_BR static
+Bibliotecas est·ticas para desenvolver aplicaÁıes gtkhtml.
 
 %prep
 %setup -q
