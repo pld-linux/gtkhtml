@@ -9,7 +9,7 @@ Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
 Version:	%{_mver}.5
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{_mver}/%{name}-%{version}.tar.bz2
@@ -21,7 +21,6 @@ Patch2:		%{name}-%{name}-stream.h.patch
 Patch4:		%{name}-disable_testgtkhtml.patch
 Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel
-Buildrequires:	bonobo-activation
 BuildRequires:	gail-devel >= 0.13
 BuildRequires:	gal-devel >= 1.99.7
 BuildRequires:	intltool
@@ -70,8 +69,7 @@ Requires:	%{name} = %{version}
 Requires:	gal-devel >= 1.99.3.99-0.20030425.1
 Requires:	libbonobo-devel
 Requires:	libgnomeprint-devel >= 2.2.0
-Requires:	libunicode-devel
-Obsoletes:	lubgtkhtml20-devel
+Obsoletes:	libgtkhtml20-devel
 
 %description devel
 Header files and etc neccessary to develop gtkhtml applications.
