@@ -5,7 +5,7 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Name:		gtkhtml
 Version:	1.0.4
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.bz2
@@ -23,6 +23,7 @@ BuildRequires:	gal-devel >= 0.19
 BuildRequires:	gdk-pixbuf-gnome-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.29
+BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-gnome-devel
@@ -33,6 +34,7 @@ Obsoletes:	libgtkhtml20
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME
+%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 This is GtkHTML, a lightweight HTML rendering/printing/editing engine.
@@ -71,6 +73,7 @@ Requires:	bonobo-devel
 Requires:	gal-devel
 Requires:	gdk-pixbuf-gnome-devel
 Requires:	gnome-print-devel >= 0.29
+Requires:	gtk-doc-common
 Requires:	libglade-gnome-devel
 Requires:	libunicode-devel
 Obsoletes:	lubgtkhtml20-devel
@@ -143,15 +146,17 @@ export GNOME_LIBCONFIG_PATH
 
 %{__make}
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	deskdir=%{_applnkdir}/Settings/GNOME/Documents
+	deskdir=%{_applnkdir}/Settings/GNOME/Documents \
+	HTML_DIR=%{_gtkdocdir}
 
 install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/gtkhtml
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -159,7 +164,7 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
@@ -185,7 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.sh
 %{_includedir}/*
 %{_datadir}/gtkhtml/*.idl
-%{_datadir}/gnome/html*
+%{_gtkdocdir}/*
 
 %files static
 %defattr(644,root,root,755)
