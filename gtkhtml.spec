@@ -6,14 +6,6 @@ Version:	1.0.1
 Release:	5
 License:	LGPL
 Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(es):	X11/Bibliotecas
-Group(fr):	X11/Librairies
-Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
-Group(pt):	X11/Bibliotecas
-Group(ru):	X11/‚…¬Ã…œ‘≈À…
-Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
@@ -60,14 +52,6 @@ Summary(es):	Bibliotecas, archivos de inclusiÛn, e etc. para desarrollar aplicac
 Summary(pl):	Pliki nag≥Ûwkowe i inne nizbÍdne do tworzenia aplikacji uøywaj±cych gtkhtml
 Summary(pt_BR):	Bibliotecas, arquivos de inclus„o, e etc para desenvolver aplicaÁıes gtkhtml
 Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(es):	X11/Bibliotecas
-Group(fr):	X11/Librairies
-Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
-Group(pt):	X11/Bibliotecas
-Group(ru):	X11/‚…¬Ã…œ‘≈À…
-Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name} = %{version}
 Requires:	bonobo-devel
 Requires:	gal-devel
@@ -98,14 +82,6 @@ Summary(es):	Bibliotecas est·ticas para desarrollar aplicaciones gtkhtml
 Summary(pl):	Biblioteki statyczne gtkhtml
 Summary(pt_BR):	Bibliotecas est·ticas para desenvolver aplicaÁıes gtkhtml
 Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(es):	X11/Bibliotecas
-Group(fr):	X11/Librairies
-Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
-Group(pt):	X11/Bibliotecas
-Group(ru):	X11/‚…¬Ã…œ‘≈À…
-Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name}-devel = %{version}
 
 %description static
