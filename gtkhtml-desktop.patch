@@ -29,8 +29,9 @@ diff -ur gtkhtml-1.0.4.orig/capplet/gtkhtml-properties.desktop gtkhtml-1.0.4/cap
 -Comment[fr]=Propriétés du visualiseur HTML
 +Comment[fr]=PropriÃ©tÃ©s du visualiseur HTML
  Comment[gl]=Propiedades do Visualizador HTML
- Comment[it]=Proprietà visualizzatore HTML
+-Comment[it]=Proprietà visualizzatore HTML
 -Comment[ja]=HTML¥Ó¥å¡¼¥¢ ¥×¥í¥Ñ¥Æ¥£
++Comment[it]=ProprietÃ  visualizzatore HTML
 +Comment[ja]=HTMLãƒ“ãƒ¥ãƒ¼ã‚¢ ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
  Comment[no]=Egenskaper for visning av HTML
 -Comment[da]=Egenskaber for visning af HTML
