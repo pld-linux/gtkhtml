@@ -1,5 +1,5 @@
 
-%define _snap 20030412
+%define _snap 20030418
 %define _mver 3.0
 
 Summary:	Gtkhtml library
@@ -24,12 +24,12 @@ Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel
 Buildrequires:	bonobo-activation
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1.99.3.99-0.20030412.1
+BuildRequires:	gal-devel >= 1.99.3.99-0.20030418.1
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libsoup-devel >= 1.99.17-0.20030412.1
+Buildrequires:	libsoup-devel >= 1.99.17-0.20030418.1
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
@@ -68,7 +68,7 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN): gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
-Requires:	gal-devel >= 1.99.3.99-0.20030412.1
+Requires:	gal-devel >= 1.99.3.99-0.20030418.1
 Requires:	libbonobo-devel
 Requires:	libgnomeprint-devel >= 2.2.0
 Requires:	libunicode-devel
