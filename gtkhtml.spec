@@ -6,8 +6,15 @@ Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
+Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
+Group(ru):	X11/âÉÂÌÉÏÔÅËÉ
+Group(uk):	X11/â¦ÂÌ¦ÏÔÅËÉ
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
+Patch0:		%{name}-am15.patch
+Patch1:		%{name}-pixmap.patch
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,16 +38,21 @@ It was originally based on KHTMLW, but is now being developed
 independently of it.
 
 %description -l pl
-GtkHTML jesrt "lekk±" bibilotek± do renderingu, drukowania i edycji HTML.
-Pierwotne ¼ród³a tej biblioteki bazuj± na KHTMLW ale teraz GtkHTML jest
-rozwijana niezale¿nie od KHTMLW,
- 
+GtkHTML jesrt "lekk±" bibilotek± do renderingu, drukowania i edycji
+HTML. Pierwotne ¼ród³a tej biblioteki bazuj± na KHTMLW ale teraz
+GtkHTML jest rozwijana niezale¿nie od KHTMLW,
+
 %package devel
 Summary:	Header files and etc neccessary to develop gtkhtml applications
 Summary(pl):	Pliki nag³ówkowe i inne nizbêdne do tworzenia aplikacji u¿ywaj±cych gtkhtml
 Group:		X11/Libraries
 Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
+Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
+Group(ru):	X11/âÉÂÌÉÏÔÅËÉ
+Group(uk):	X11/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 
 %description devel
@@ -55,7 +67,12 @@ Summary:	Static gtkhtml libraries
 Summary(pl):	Biblioteki statyczne gtkhtml
 Group:		X11/Libraries
 Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
+Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
+Group(ru):	X11/âÉÂÌÉÏÔÅËÉ
+Group(uk):	X11/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -66,6 +83,8 @@ Biblioteki statyczne gtkhtml.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
@@ -105,8 +124,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/control-center/Documents
 %{_applnkdir}/Settings/GNOME/Documents
 %dir %{_datadir}/gtkhtml
+%{_datadir}/gtkhtml/icons
 %{_datadir}/gtkhtml/keybindingsrc*
 %{_datadir}/gtkhtml/*.glade
+%{_pixmapsdir}/*
 
 %files devel
 %defattr(644,root,root,755)
