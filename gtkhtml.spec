@@ -20,12 +20,12 @@ BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
 BuildRequires:	gal-devel >= 0.19
-BuildRequires:	gdk-pixbuf-devel >= 0.8.0
+BuildRequires:	gdk-pixbuf-gnome-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.29
 BuildRequires:	intltool
 BuildRequires:	libghttp-devel >= 1.0
-BuildRequires:	libglade-devel
+BuildRequires:	libglade-gnome-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
@@ -69,9 +69,9 @@ Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	bonobo-devel
 Requires:	gal-devel
-Requires:	gdk-pixbuf-devel
+Requires:	gdk-pixbuf-gnome-devel
 Requires:	gnome-print-devel >= 0.29
-Requires:	libglade-devel
+Requires:	libglade-gnome-devel
 Requires:	libunicode-devel
 Obsoletes:	lubgtkhtml20-devel
 
