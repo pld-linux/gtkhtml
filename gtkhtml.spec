@@ -1,3 +1,6 @@
+%define		mver		1.1
+%define		subver		6
+
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
@@ -5,11 +8,11 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б 
 Name:		gtkhtml
-Version:	1.0.4
-Release:	5
+Version:	%{mver}.%{subver}
+Release:	4
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{mver}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -156,9 +159,9 @@ rm -rf $RPM_BUILD_ROOT
 	deskdir=%{_applnkdir}/Settings/GNOME/Documents \
 	HTML_DIR=%{_gtkdocdir}
 
-install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/gtkhtml
+install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/gtkhtml-%{mver}
 
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -171,17 +174,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.so
-%dir %{_datadir}/gtkhtml
-%{_datadir}/gtkhtml/icons
-%{_datadir}/gtkhtml/keybindingsrc*
-%{_datadir}/gtkhtml/*.glade
+%dir %{_datadir}/gtkhtml-%{mver}
+%{_datadir}/gtkhtml-%{mver}/icons
+%{_datadir}/gtkhtml-%{mver}/keybindingsrc*
+%{_datadir}/gtkhtml-%{mver}/*.glade
 %{_datadir}/control-center/Documents/*
-#%{_datadir}/control-center/capplets
 %{_datadir}/gnome/ui/*
 %{_datadir}/oaf/*.oaf
 %{_applnkdir}/Settings/GNOME/Documents/*
-%{_sysconfdir}/CORBA/servers/html-component.gnorba
 %{_pixmapsdir}/*
+%{_libdir}/pkgconfig/*
 
 %files devel
 %defattr(644,root,root,755)
@@ -189,9 +191,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.la
-%attr(755,root,root) %{_libdir}/*.sh
 %{_includedir}/*
-%{_datadir}/gtkhtml/*.idl
+%{_datadir}/gtkhtml-%{mver}/*.idl
 %{_gtkdocdir}/*
 
 %files static
