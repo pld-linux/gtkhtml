@@ -191,8 +191,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.la
+%{_libdir}/lib*.la
+%{_libdir}/bonobo/plugin/lib*.la
 %{_includedir}/*
 %{_datadir}/idl/*.idl
 %{_gtkdocdir}/*
