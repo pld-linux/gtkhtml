@@ -2,8 +2,8 @@ Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
 Name:		gtkhtml
-Version:	0.16.1
-Release:	2
+Version:	1.0.0
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -117,7 +117,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
+#%patch3 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
