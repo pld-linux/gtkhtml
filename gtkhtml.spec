@@ -1,5 +1,5 @@
 
-%define _mver 3.0
+%define _mver 3.1
 
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
@@ -8,12 +8,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.9
+Version:	%{_mver}.4
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	0fbbdcbc87ad5dcf33372320beb57283
+# Source0-md5:	60cfefc34582583773094f9298989de3
 #Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -124,7 +124,7 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 %patch1 -p1
 %patch2 -p1
 #%%patch3 -p1
-%patch4 -p1
+#%%patch4 -p1
 %patch5 -p1
 
 %build
