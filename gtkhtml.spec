@@ -17,9 +17,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
-This is GtkHTML, a lightweight HTML rendering/printing/editing engine. It
-was originally based on KHTMLW, but is now being developed independently of
-it.
+This is GtkHTML, a lightweight HTML rendering/printing/editing engine.
+It was originally based on KHTMLW, but is now being developed
+independently of it.
 
 %package devel
 Summary:	Header files and etc neccessary to develop gtkhtml applications
@@ -80,4 +80,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 
 %files static
-%attr(644,root,root) %{_libdir}/lib*.a
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
