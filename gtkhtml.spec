@@ -149,7 +149,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gtkhtml/keybindingsrc*
 %{_datadir}/gtkhtml/*.glade
 %{_datadir}/control-center/Documents
-%{_datadir}/control-center/capplets
+#%{_datadir}/control-center/capplets
 %{_datadir}/gnome/ui/*
 %{_datadir}/oaf/*.oaf
 %{_applnkdir}/Settings/GNOME/Documents
