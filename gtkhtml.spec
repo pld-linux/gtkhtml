@@ -5,14 +5,12 @@ Summary(ru):	GtkHTML - ÜÔÏ ÂÉÂÌÉÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÁ/ÒÅÄÁËÔÉÒÏ×ÁÎÉÑ HTML
 Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
 Summary(zh_CN):	gtkhtml ¿â
 Name:		gtkhtml
-%define	mver	3.5
-%define	langver	3.6
-Version:	%{mver}.6
+Version:	3.2.5
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/%{mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	33ff9578d69da1f730a8df7042965eb1
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	86e1ce32fed536bce5b2d6e8d41b0c65
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-gtkhtml-stream.h.patch
 Patch2:		%{name}-link.patch
@@ -20,8 +18,8 @@ BuildRequires:	ORBit2-devel >= 1:2.10.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.6.6
+BuildRequires:	gal-devel >= 1:2.2.5
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnome-vfs2-devel
 BuildRequires:	intltool >= 0.31.3
 BuildRequires:	libbonoboui-devel >= 2.6.1
 BuildRequires:	libglade2-devel >= 1:2.4.0
@@ -30,6 +28,7 @@ BuildRequires:	libgnomeui-devel >= 2.6.1
 BuildRequires:	libsoup-devel >= 2.2.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+Requires:	gal >= 1:2.2.5
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -68,6 +67,7 @@ Summary(zh_CN):	gtkhtml¿ª·¢¿â
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.6.6
+Requires:	gal-devel >= 1:2.2.5
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libgnomeprintui-devel >= 2.6.1
 Requires:	libgnomeui-devel >= 2.6.1
@@ -120,7 +120,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-#%patch2 -p1
+%patch2 -p1
 
 %build
 glib-gettextize --copy --force
@@ -151,7 +151,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
 
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
-%find_lang %{name}-%{langver} --all-name
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -159,7 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{name}-%{langver}.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
