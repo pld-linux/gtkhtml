@@ -8,21 +8,22 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.16
+Version:	%{_mver}.17
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	a16fc3d5e2c7b3d94791bf797588adc3
+# Source0-md5:	4bd30e9e13943de08b26bac3605aea42
 Patch0:		%{name}-pixmap.patch
-Patch1:		%{name}-%{name}-stream.h.patch
+Patch1:		%{name}-gtkhtml-stream.h.patch
 Patch2:		%{name}-link.patch
 Patch3:		%{name}-locale-names.patch
-BuildRequires:	ORBit2-devel >= 1:2.10.2
+BuildRequires:	ORBit2-devel >= 1:2.10.3
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.6.0
-BuildRequires:	gal-devel >= 1:2.1.10
+BuildRequires:	gail-devel >= 1.6.6
+BuildRequires:	gal-devel >= 1:2.1.11
+BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	intltool >= 0.27.1
 BuildRequires:	libbonoboui-devel >= 2.6.1
 BuildRequires:	libglade2-devel >= 1:2.4.0
@@ -30,7 +31,7 @@ BuildRequires:	libgnomeprintui-devel >= 2.6.1
 BuildRequires:	libgnomeui-devel >= 2.6.1
 BuildRequires:	libsoup-devel >= 2.1.11
 BuildRequires:	libtool
-Requires:	gal >= 1:2.1.10
+Requires:	gal >= 1:2.1.11
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -68,8 +69,8 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gail-devel >= 1.6.0
-Requires:	gal-devel >= 1:2.1.10
+Requires:	gail-devel >= 1.6.6
+Requires:	gal-devel >= 1:2.1.11
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libgnomeprintui-devel >= 2.6.1
 Requires:	libgnomeui-devel >= 2.6.1
@@ -131,7 +132,7 @@ mv po/{no,nb}.po
 glib-gettextize --copy --force
 intltoolize --copy --force
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoheader}
 %{__autoconf}
 %{__automake}
