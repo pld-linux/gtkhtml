@@ -175,7 +175,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/CORBA/servers/html-component.gnorba
 %{_pixmapsdir}/*
 
-%files devel -f
+%files devel
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
