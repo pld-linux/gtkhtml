@@ -8,12 +8,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.9
-Release:	1
+Version:	%{_mver}.10
+Release:	0.1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	0fbbdcbc87ad5dcf33372320beb57283
+# Source0-md5:	b05b8551f7803f32ecfcf505a6310f3f
 #Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -24,13 +24,14 @@ BuildRequires:	ORBit2-devel >= 2.7.5-1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1:1.99.9
+BuildRequires:	gal-devel >= 1:1.99.11
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 BuildRequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libsoup-devel >= 1.99.23
 BuildRequires:	libtool
+BuildRequires:	libiconv-devel
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -125,7 +126,7 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 %patch2 -p1
 #%%patch3 -p1
 %patch4 -p1
-%patch5 -p1
+#%patch5 -p1
 
 %build
 rm -f missing
