@@ -1,7 +1,8 @@
-Summary:	gtkhtml library
+Summary:	Gtkhtml library
+Summary(pl):	Biblioteka gtkhtml
 Name:		gtkhtml
-Version:	0.7
-Release:	3
+Version:	0.8
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -9,7 +10,7 @@ Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
 BuildRequires:	ORBit-devel
 #BuildRequires:	bonobo-devel >= 0.9
-BuildRequires:	gal-devel >= 0.3
+BuildRequires:	gal-devel >= 0.4.1
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.13
@@ -24,8 +25,14 @@ This is GtkHTML, a lightweight HTML rendering/printing/editing engine.
 It was originally based on KHTMLW, but is now being developed
 independently of it.
 
+%description -l pl
+GtkHTML jesrt "lekk±" bibilotek± do renderingu, drukowania i edycji HTML.
+Pierwotne ¼ród³a tej biblioteki bazuj± na KHTMLW ale teraz GtkHTML jest
+rozwijana niezale¿nie od KHTMLW,
+ 
 %package devel
 Summary:	Header files and etc neccessary to develop gtkhtml applications
+Summary(pl):	Pliki nag³ówkowe i inne nizbêdne do tworzenia aplikacji u¿ywaj±cych gtkhtml
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
@@ -34,8 +41,13 @@ Requires:	%{name} = %{version}
 %description devel
 Header files and etc neccessary to develop gtkhtml applications.
 
+%description devel
+Pliki nag³ówkowe i reszta niezbêdnych przy tworzeniu aplikacji
+wykorzystujacych gtkhtml.
+
 %package static
 Summary:	Static gtkhtml libraries
+Summary(pl):	Biblioteki statyczne gtkhtml
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
@@ -43,6 +55,9 @@ Requires:	%{name}-devel = %{version}
 
 %description static
 Static gtkhtml libraries.
+
+%description -l pl static
+Biblioteki statyczne gtkhtml.
 
 %prep
 %setup -q
