@@ -1,5 +1,5 @@
 
-%define _snap 20030329
+%define _snap 20030405
 %define _mver 3.0
 
 Summary:	Gtkhtml library
@@ -20,16 +20,15 @@ Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
 #Patch3:		%{name}-get_default_fonts.patch
 Patch4:		%{name}-disable_testgtkhtml.patch
-Patch5:		%{name}-am.patch
 BuildRequires:	ORBit2-devel
 Buildrequires:	bonobo-activation
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1.99.2.99
+BuildRequires:	gal-devel >= 1.99.2.99-0.20030405.1
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libsoup-devel >= 1.99.16
+Buildrequires:	libsoup-devel >= 1.99.16-0.20030405.1
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
@@ -68,7 +67,7 @@ Summary(uk):	æÁÊÌÉ, ÎÅÏÂÈ¦ÄÎ¦ ÄÌÑ ÒÏÚÒÏÂËÉ ÐÒÏÇÒÁÍ Ú ×ÉËÏÒÉÓÔÁÎÎÑÍ gtkhtml
 Summary(zh_CN): gtkhtml¿ª·¢¿â
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
-Requires:	gal-devel >= 1.99.2.99
+Requires:	gal-devel >= 1.99.2.99-0.20030405.1
 Requires:	libbonobo-devel
 Requires:	libgnomeprint-devel >= 2.2.0
 Requires:	libunicode-devel
@@ -124,7 +123,6 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch2 -p1
 #%%patch3 -p1
 %patch4 -p1
-%patch5 -p1
 
 %build
 rm -f missing
@@ -164,9 +162,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
-%attr(755,root,root) %{_libdir}/gnome-gtkhtml-editor*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/bonobo/servers/*
+%dir %{_libdir}/%{name}
+%attr(755,root,root) %{_libdir}/%{name}/*.so
+%{_libdir}/bonobo/servers/*
+
 %{_datadir}/%{name}-%{_mver}
 %{_pixmapsdir}/*
 
@@ -174,6 +174,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
+%{_libdir}/%{name}/*.la
 %{_includedir}/*
 %{_datadir}/idl/*.idl
 %{_pkgconfigdir}/*
