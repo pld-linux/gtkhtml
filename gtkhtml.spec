@@ -1,5 +1,5 @@
 
-%define _snap 20030315
+%define _snap 20030323
 %define _mver 3.0
 
 Summary:	Gtkhtml library
