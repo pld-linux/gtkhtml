@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
 Name:		gtkhtml
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -19,6 +19,7 @@ Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
 Patch3:		%{name}-get_default_fonts.patch
+Patch4:		%{name}-XML_I18N_MERGE_OAF_RULE.patch
 BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
@@ -117,23 +118,27 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%patch3 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
 mv -f configure.in.tmp configure.in
 rm -f missing
 libtoolize --copy --force
+xml-i18n-toolize --force
 aclocal -I macros
 autoconf
 automake -a -c
 GNOME_LIBCONFIG_PATH=/usr/lib
 export GNOME_LIBCONFIG_PATH
+
 %configure \
-	--without-bonobo \
+	--with-bonobo \
 	--with-gconf
 
 %{__make}
+        
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -156,12 +161,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_datadir}/control-center/Documents
-%{_applnkdir}/Settings/GNOME/Documents
+%attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.so
 %dir %{_datadir}/gtkhtml
 %{_datadir}/gtkhtml/icons
 %{_datadir}/gtkhtml/keybindingsrc*
 %{_datadir}/gtkhtml/*.glade
+%{_datadir}/control-center/Documents
+%{_datadir}/control-center/capplets
+%{_datadir}/gnome
+%{_datadir}/oaf/*.oaf
+%{_applnkdir}/Settings/GNOME/Documents
+%{_sysconfdir}/CORBA/servers/html-component.gnorba
 %{_pixmapsdir}/*
 
 %files devel
@@ -169,6 +179,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
 %{_includedir}/*
 %{_datadir}/gtkhtml/*.idl
@@ -176,3 +187,4 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%{_libdir}/bonobo/plugin/lib*.a
