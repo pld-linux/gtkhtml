@@ -25,7 +25,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
-BuildRequires:	gal-devel >= 0.18
+BuildRequires:	gal-devel >= 0.19
 BuildRequires:	gdk-pixbuf-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.29
@@ -169,13 +169,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gtkhtml/*.glade
 %{_datadir}/control-center/Documents
 %{_datadir}/control-center/capplets
-%{_datadir}/gnome
+%{_datadir}/gnome/ui/*
 %{_datadir}/oaf/*.oaf
 %{_applnkdir}/Settings/GNOME/Documents
 %{_sysconfdir}/CORBA/servers/html-component.gnorba
 %{_pixmapsdir}/*
 
-%files devel
+%files devel -f
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
@@ -184,6 +184,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.sh
 %{_includedir}/*
 %{_datadir}/gtkhtml/*.idl
+%{_datadir}/gnome/html*
 
 %files static
 %defattr(644,root,root,755)
