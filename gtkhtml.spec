@@ -9,7 +9,7 @@ Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б 
 Name:		gtkhtml
 Version:	%{mver}.%{subver}
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{mver}/%{name}-%{version}.tar.bz2
@@ -23,7 +23,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
-BuildRequires:	gal-devel >= 0.19
+BuildRequires:	gal-devel >= 0.21
 BuildRequires:	gdk-pixbuf-gnome-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.29
@@ -157,9 +157,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	deskdir=%{_applnkdir}/Settings/GNOME/Documents \
+	pkgconfigdir=%{_pkgconfig} \
 	HTML_DIR=%{_gtkdocdir}
 
-install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/gtkhtml-%{mver}
+install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/idl
 
 %find_lang %{name} --all-name
 
@@ -183,7 +184,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/oaf/*.oaf
 %{_applnkdir}/Settings/GNOME/Documents/*
 %{_pixmapsdir}/*
-%{_libdir}/pkgconfig/*
+%{_pkgconfig}/*
 
 %files devel
 %defattr(644,root,root,755)
@@ -192,7 +193,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.la
 %{_includedir}/*
-%{_datadir}/gtkhtml-%{mver}/*.idl
+%{_datadir}/idl/*.idl
 %{_gtkdocdir}/*
 
 %files static
