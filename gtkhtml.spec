@@ -1,7 +1,7 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Name:		gtkhtml
-Version:	0.12.0
+Version:	0.15.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
@@ -12,7 +12,7 @@ Group(pl):	X11/Biblioteki
 Group(pt):	X11/Bibliotecas
 Group(ru):	X11/Библиотеки
 Group(uk):	X11/Б╕бл╕отеки
-Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-gtkhtml-stream.h.patch
@@ -25,6 +25,7 @@ BuildRequires:	gal-devel >= 0.11.2
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.13
+BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
