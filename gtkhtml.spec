@@ -27,9 +27,9 @@ BuildRequires:	gail-devel >= 0.13
 BuildRequires:	gal-devel >= 1:1.99.9
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
-Buildrequires:	libgnomeprintui-devel >= 2.2.1
+BuildRequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
-Buildrequires:	libsoup-devel >= 1.99.23
+BuildRequires:	libsoup-devel >= 1.99.23
 BuildRequires:	libtool
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
