@@ -19,7 +19,6 @@ Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
 Patch3:		%{name}-get_default_fonts.patch
-Patch4:		%{name}-XML_I18N_MERGE_OAF_RULE.patch
 BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
@@ -30,6 +29,7 @@ BuildRequires:	gal-devel >= 0.18
 BuildRequires:	gdk-pixbuf-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.29
+BuildRequires:	intltool
 BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-devel
 BuildRequires:	libtool
@@ -119,7 +119,6 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
