@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
 Name:		gtkhtml
 Version:	1.0.0
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -34,6 +34,7 @@ BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	lubgtkhtml20
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -69,6 +70,7 @@ Group(ru):	X11/Библиотеки
 Group(uk):	X11/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	gnome-print-devel >= 0.29
+Obsoletes:	lubgtkhtml20-devel
 
 %description devel
 Header files and etc neccessary to develop gtkhtml applications.
