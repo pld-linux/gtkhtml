@@ -1,5 +1,5 @@
 
-%define _snap 20030323
+%define _snap 20030329
 %define _mver 3.0
 
 Summary:	Gtkhtml library
@@ -20,6 +20,7 @@ Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
 #Patch3:		%{name}-get_default_fonts.patch
 Patch4:		%{name}-disable_testgtkhtml.patch
+Patch5:		%{name}-am.patch
 BuildRequires:	ORBit2-devel
 Buildrequires:	bonobo-activation
 BuildRequires:	gail-devel >= 0.13
@@ -28,7 +29,7 @@ BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libsoup-devel >= 1.99.14
+Buildrequires:	libsoup-devel >= 1.99.16
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
@@ -123,6 +124,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch2 -p1
 #%%patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 rm -f missing
