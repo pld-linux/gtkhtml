@@ -2,7 +2,7 @@ Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
 Name:		gtkhtml
-Version:	0.16.0
+Version:	0.16.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
