@@ -1,5 +1,5 @@
 
-%define _mver 3.0
+%define _mver 3.1
 
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
@@ -8,26 +8,27 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.10
+Version:	%{_mver}.9
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	b05b8551f7803f32ecfcf505a6310f3f
+# Source0-md5:	259476992d3b79c29be1b9048e26f71f
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-%{name}-stream.h.patch
-Patch2:		%{name}-disable_testgtkhtml.patch
-#Patch3:		%{name}-get_default_fonts.patch
-BuildRequires:	ORBit2-devel >= 2.7.5-1
+Patch2:		%{name}-link.patch
+Patch3:		%{name}-locale-names.patch
+BuildRequires:	ORBit2-devel >= 1:2.10.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1:1.99.11
-BuildRequires:	intltool
-BuildRequires:	libbonobo-devel
-BuildRequires:	libgnomeprintui-devel >= 2.2.1
-BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
-BuildRequires:	libsoup-devel >= 1.99.28
+BuildRequires:	gail-devel >= 1.6.0
+BuildRequires:	gal-devel >= 1:2.1.6
+BuildRequires:	intltool >= 0.27.1
+BuildRequires:	libbonoboui-devel >= 2.6.0
+BuildRequires:	libglade2-devel >= 1:2.3.6
+BuildRequires:	libgnomeprintui-devel >= 2.6.0
+BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	libsoup-devel >= 2.1.8
 BuildRequires:	libtool
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,12 +66,12 @@ Summary(ru):	Файлы, необходимые для разработки программ с использованием gtkhtml
 Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
-Requires:	%{name} = %{version}
-Requires:	gail-devel >= 0.13
-Requires:	gal-devel >= 1:1.99.9
-Requires:	libbonobo-devel
-Requires:	libgnomeprintui-devel >= 2.2.1
-Requires:	libgnomeui-devel >= 2.3.3.1-2
+Requires:	%{name} = %{version}-%{release}
+Requires:	gail-devel >= 1.6.0
+Requires:	gal-devel >= 1:2.1.6
+Requires:	libbonobo-devel >= 2.6.0
+Requires:	libgnomeprintui-devel >= 2.6.0
+Requires:	libgnomeui-devel >= 2.6.0
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
@@ -102,7 +103,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml
 Summary(ru):	Статические библиотеки для разработки программ с gtkhtml
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з gtkhtml
 Group:		X11/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gtkhtml libraries.
@@ -121,7 +122,9 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-#%%patch3 -p1
+%patch3 -p1
+
+mv po/{no,nb}.po
 
 %build
 glib-gettextize --copy --force
