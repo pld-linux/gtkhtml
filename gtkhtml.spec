@@ -1,21 +1,25 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Name:		gtkhtml
-Version:	0.9.2
-Release:	3
+Version:	0.10.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
+Patch0:		gtkhtml-use_AM_GNU_GETTEXT.patch
 BuildRequires:	ORBit-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
-BuildRequires:	gal-devel >= 0.8
+BuildRequires:	gal-devel >= 0.9
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.13
 BuildRequires:	libglade-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -63,8 +67,13 @@ Biblioteki statyczne gtkhtml.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+libtoolize --copy --force
+aclocal -I macros
+autoconf
+automake -a -c
 GNOME_LIBCONFIG_PATH=/usr/lib
 export GNOME_LIBCONFIG_PATH
 %configure \
