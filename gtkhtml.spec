@@ -9,12 +9,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.8
+Version:	%{_mver}.9
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	22bc337552f8826cb079b9df8d028769
+# Source0-md5:	259476992d3b79c29be1b9048e26f71f
 #Source0:	%{name}-%{version}-%{snap}.tar.bz2
 #Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
@@ -22,16 +22,18 @@ Patch2:		%{name}-%{name}-stream.h.patch
 #Patch3:		%{name}-get_default_fonts.patch
 #Patch4:		%{name}-disable_testgtkhtml.patch
 Patch5:		%{name}-link.patch
+Patch6:		%{name}-locale-names.patch
 BuildRequires:	ORBit2-devel >= 2.9.2-2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.5.3
-BuildRequires:	gal-devel >= 1:2.1.5
-BuildRequires:	intltool
-BuildRequires:	libbonobo-devel >= 2.5.0
+BuildRequires:	gal-devel >= 1:2.1.6
+BuildRequires:	intltool >= 0.27.1
+BuildRequires:	libbonoboui-devel >= 2.5.0
+BuildRequires:	libglade2-devel >= 2.3.0
 BuildRequires:	libgnomeprintui-devel >= 2.5.1
 BuildRequires:	libgnomeui-devel >= 2.5.1
-BuildRequires:	libsoup-devel >= 2.1.6
+BuildRequires:	libsoup-devel >= 2.1.8
 BuildRequires:	libtool
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -69,9 +71,9 @@ Summary(ru):	Файлы, необходимые для разработки программ с использованием gtkhtml
 Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.5.3
-Requires:	gal-devel >= 1:2.1.5
+Requires:	gal-devel >= 1:2.1.6
 Requires:	libbonobo-devel >= 2.5.0
 Requires:	libgnomeprintui-devel >= 2.5.1
 Requires:	libgnomeui-devel >= 2.5.1
@@ -106,7 +108,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml
 Summary(ru):	Статические библиотеки для разработки программ с gtkhtml
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з gtkhtml
 Group:		X11/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gtkhtml libraries.
@@ -128,9 +130,11 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 #%%patch3 -p1
 #%%patch4 -p1
 %patch5 -p1
+%patch6 -p1
+
+mv po/{no,nb}.po
 
 %build
-cp %{_datadir}/automake/mkinstalldirs ./
 rm -f missing
 glib-gettextize --copy --force
 intltoolize --copy --force
