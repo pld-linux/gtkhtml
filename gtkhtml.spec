@@ -3,9 +3,10 @@ Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
 Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
+Summary(zh_CN): gtkhtml ©Б 
 Name:		gtkhtml
 Version:	1.0.4
-Release:	2
+Release:	4
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.bz2
@@ -67,6 +68,7 @@ Summary(pl):	Pliki nagЁСwkowe i inne nizbЙdne do tworzenia aplikacji u©ywaj╠cych
 Summary(pt_BR):	Bibliotecas, arquivos de inclusЦo, e etc para desenvolver aplicaГУes gtkhtml
 Summary(ru):	Файлы, необходимые для разработки программ с использованием gtkhtml
 Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
+Summary(zh_CN): gtkhtml©╙╥╒©Б 
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	bonobo-devel
