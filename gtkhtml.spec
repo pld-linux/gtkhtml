@@ -15,6 +15,7 @@ Group(uk):	X11/Б╕бл╕отеки
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
+Patch2:		%{name}-gtkhtml-stream.h.patch
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -85,10 +86,12 @@ Biblioteki statyczne gtkhtml.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
 mv -f configure.in.tmp configure.in
+rm -f missing
 libtoolize --copy --force
 aclocal -I macros
 autoconf
