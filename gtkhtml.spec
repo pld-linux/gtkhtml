@@ -136,7 +136,7 @@ mv -f configure.in.tmp configure.in
 rm -f missing
 %{__libtoolize}
 xml-i18n-toolize --force
-aclocal -I macros
+%{__aclocal} -I macros
 %{__autoconf}
 %{__automake}
 GNOME_LIBCONFIG_PATH=/usr/lib
