@@ -9,7 +9,7 @@ Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
 Version:	%{_mver}.4
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
@@ -20,16 +20,16 @@ Patch2:		%{name}-%{name}-stream.h.patch
 #Patch3:		%{name}-get_default_fonts.patch
 #Patch4:		%{name}-disable_testgtkhtml.patch
 Patch5:		%{name}-link.patch
-BuildRequires:	ORBit2-devel >= 2.7.5-1
+BuildRequires:	ORBit2-devel >= 2.9.2-2
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1:1.99.9
+BuildRequires:	gail-devel >= 1.5.1
+BuildRequires:	gal-devel >= 1:2.1.1
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
-BuildRequires:	libgnomeprintui-devel >= 2.2.1
-BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
-BuildRequires:	libsoup-devel >= 1.99.23
+BuildRequires:	libgnomeprintui-devel >= 2.5.0.1
+BuildRequires:	libgnomeui-devel >= 2.5.1
+BuildRequires:	libsoup-devel >= 2.1.1
 BuildRequires:	libtool
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -68,11 +68,11 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
-Requires:	gail-devel >= 0.13
-Requires:	gal-devel >= 1:1.99.9
+Requires:	gail-devel >= 1.5.1
+Requires:	gal-devel >= 1:2.1.1
 Requires:	libbonobo-devel
-Requires:	libgnomeprintui-devel >= 2.2.1
-Requires:	libgnomeui-devel >= 2.3.3.1-2
+Requires:	libgnomeprintui-devel >= 2.5.0.1
+Requires:	libgnomeui-devel >= 2.5.1
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
