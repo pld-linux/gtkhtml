@@ -9,17 +9,15 @@ Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
 Summary(zh_CN):	gtkhtml ¿â
 Name:		gtkhtml
 Version:	%{_mver}.10
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
 # Source0-md5:	b05b8551f7803f32ecfcf505a6310f3f
-#Patch0:		%{name}-am15.patch
-Patch1:		%{name}-pixmap.patch
-Patch2:		%{name}-%{name}-stream.h.patch
+Patch0:		%{name}-pixmap.patch
+Patch1:		%{name}-%{name}-stream.h.patch
+Patch2:		%{name}-disable_testgtkhtml.patch
 #Patch3:		%{name}-get_default_fonts.patch
-Patch4:		%{name}-disable_testgtkhtml.patch
-Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel >= 2.7.5-1
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -29,9 +27,8 @@ BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 BuildRequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
-BuildRequires:	libsoup-devel >= 1.99.23
+BuildRequires:	libsoup-devel >= 1.99.28
 BuildRequires:	libtool
-BuildRequires:	libiconv-devel
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -121,15 +118,12 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 
 %prep
 %setup -q
-#%%patch0 -p1
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 #%%patch3 -p1
-%patch4 -p1
-#%patch5 -p1
 
 %build
-rm -f missing
 glib-gettextize --copy --force
 intltoolize --copy --force
 %{__libtoolize}
