@@ -21,8 +21,10 @@ Patch2:		%{name}-%{name}-stream.h.patch
 Patch4:		%{name}-disable_testgtkhtml.patch
 Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1.99.7
+BuildRequires:	gal-devel >= 1:1.99.7
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
@@ -40,7 +42,7 @@ independently of it.
 %description -l pl
 GtkHTML jesrt "lekk±" bibilotek± do renderingu, drukowania i edycji
 HTML. Pierwotne ¼ród³a tej biblioteki bazuj± na KHTMLW ale teraz
-GtkHTML jest rozwijana niezale¿nie od KHTMLW,
+GtkHTML jest rozwijana niezale¿nie od KHTMLW.
 
 %description -l pt_BR
 Este é o GtkHTML, uma ferramenta de renderizar/imprimir/editar HTML
@@ -57,22 +59,24 @@ leve e pequeno
 ÎØÏÇÏ.
 
 %package devel
-Summary:	Header files and etc neccessary to develop gtkhtml applications
+Summary:	Header files etc. neccessary to develop gtkhtml applications
 Summary(es):	Bibliotecas, archivos de inclusión, e etc. para desarrollar aplicaciones gtkhtml
-Summary(pl):	Pliki nag³ówkowe i inne nizbêdne do tworzenia aplikacji u¿ywaj±cych gtkhtml
+Summary(pl):	Pliki nag³ówkowe i inne niezbêdne do tworzenia aplikacji u¿ywaj±cych gtkhtml
 Summary(pt_BR):	Bibliotecas, arquivos de inclusão, e etc para desenvolver aplicações gtkhtml
 Summary(ru):	æÁÊÌÙ, ÎÅÏÂÈÏÄÉÍÙÅ ÄÌÑ ÒÁÚÒÁÂÏÔËÉ ÐÒÏÇÒÁÍÍ Ó ÉÓÐÏÌØÚÏ×ÁÎÉÅÍ gtkhtml
 Summary(uk):	æÁÊÌÉ, ÎÅÏÂÈ¦ÄÎ¦ ÄÌÑ ÒÏÚÒÏÂËÉ ÐÒÏÇÒÁÍ Ú ×ÉËÏÒÉÓÔÁÎÎÑÍ gtkhtml
 Summary(zh_CN): gtkhtml¿ª·¢¿â
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
-Requires:	gal-devel >= 1.99.3.99-0.20030425.1
+Requires:	gail-devel >= 0.13
+Requires:	gal-devel >= 1:1.99.7
 Requires:	libbonobo-devel
-Requires:	libgnomeprint-devel >= 2.2.0
+Requires:	libgnomeprintui-devel >= 2.2.1
+Requires:	libgnomeui-devel
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
-Header files and etc neccessary to develop gtkhtml applications.
+Header files etc. neccessary to develop gtkhtml applications.
 
 %description devel -l es
 Bibliotecas, archivos de inclusión, y etc para desarrollar
@@ -80,7 +84,7 @@ aplicaciones gtkhtml.
 
 %description devel -l pl
 Pliki nag³ówkowe i reszta niezbêdnych przy tworzeniu aplikacji
-wykorzystujacych gtkhtml.
+wykorzystuj±cych gtkhtml.
 
 %description devel -l pt_BR
 Bibliotecas, arquivos de inclusão, e etc para desenvolver aplicações
@@ -150,7 +154,7 @@ rm -rf $RPM_BUILD_ROOT
 	idldir=%{_datadir}/idl
 
 # no static modules - shut up check-files
-rm -f $RPM_BUILD_ROOT/%{_libdir}/%{name}/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
 
 %find_lang %{name} --all-name
 
