@@ -18,6 +18,7 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{versio
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
+Patch3:		%{name}-get_default_fonts.patch
 BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
@@ -116,6 +117,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
