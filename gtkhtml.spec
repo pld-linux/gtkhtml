@@ -31,7 +31,6 @@ BuildRequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 BuildRequires:	libsoup-devel >= 1.99.28
 BuildRequires:	libtool
-BuildRequires:	libiconv-devel
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
