@@ -12,9 +12,8 @@ Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.6/%{name}-%{version}.tar.bz2
 # Source0-md5:	df30dbbd12b6a3f1355a9a82aa430781
 Patch0:		%{name}-pixmap.patch
-Patch1:		%{name}-gtkhtml-stream.h.patch
-Patch2:		%{name}-link.patch
-Patch3:		%{name}-crash.patch
+Patch1:		%{name}-link.patch
+Patch2:		%{name}-crash.patch
 BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -124,7 +123,6 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 glib-gettextize --copy --force
