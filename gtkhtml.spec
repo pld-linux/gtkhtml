@@ -9,7 +9,7 @@ Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
 Version:	%{_mver}.7
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
@@ -20,19 +20,19 @@ Patch2:		%{name}-%{name}-stream.h.patch
 #Patch3:		%{name}-get_default_fonts.patch
 Patch4:		%{name}-disable_testgtkhtml.patch
 Patch5:		%{name}-link.patch
-BuildRequires:	ORBit2-devel
+BuildRequires:	ORBit2-devel >= 2.7.5-1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1:1.99.8
+BuildRequires:	gal-devel >= 1:1.99.8-2
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
-BuildRequires:	libgnomeui-devel
+BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
 Buildrequires:	libsoup-devel >= 1.99.23
 BuildRequires:	libtool
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This is GtkHTML, a lightweight HTML rendering/printing/editing engine.
@@ -69,10 +69,10 @@ Summary(zh_CN): gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	gail-devel >= 0.13
-Requires:	gal-devel >= 1:1.99.8
+Requires:	gal-devel >= 1:1.99.8-2
 Requires:	libbonobo-devel
 Requires:	libgnomeprintui-devel >= 2.2.1
-Requires:	libgnomeui-devel
+Requires:	libgnomeui-devel >= 2.3.3.1-2
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
