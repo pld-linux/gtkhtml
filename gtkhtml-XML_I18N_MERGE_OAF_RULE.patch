@@ -1,0 +1,26 @@
+diff -Nur gtkhtml-1.0.0.orig/components/ebrowser/Makefile.am gtkhtml-1.0.0/components/ebrowser/Makefile.am
+--- gtkhtml-1.0.0.orig/components/ebrowser/Makefile.am	Mon Dec 10 13:19:51 2001
++++ gtkhtml-1.0.0/components/ebrowser/Makefile.am	Mon Dec 10 13:21:03 2001
+@@ -63,7 +63,8 @@
+ oaf_in_files = GNOME_GtkHTML_EBrowser.oaf.in
+ oaf_DATA = $(oaf_in_files:.oaf.in=.oaf)
+ 
+-@XML_I18N_MERGE_OAF_RULE@
++@XML_I18N_MERGE_OAF_RULE1@
++@XML_I18N_MERGE_OAF_RULE2@
+ 
+ EXTRA_DIST = \
+ 	$(oaf_in_files)	\
+diff -Nur gtkhtml-1.0.0.orig/components/html-editor/Makefile.am gtkhtml-1.0.0/components/html-editor/Makefile.am
+--- gtkhtml-1.0.0.orig/components/html-editor/Makefile.am	Mon Dec 10 13:19:51 2001
++++ gtkhtml-1.0.0/components/html-editor/Makefile.am	Mon Dec 10 13:21:38 2001
+@@ -144,7 +144,8 @@
+ 
+ oafdir = $(datadir)/oaf
+ 
+-@XML_I18N_MERGE_OAF_RULE@
++@XML_I18N_MERGE_OAF_RULE1@
++@XML_I18N_MERGE_OAF_RULE2@
+ 
+ GNOME_GtkHTML_Editor.xml: GNOME_GtkHTML_Editor.xml.in Makefile
+ 	sed -e 's?\@ICONSDIR\@?$(GTKHTML_DATADIR)/gtkhtml/icons?g' \
