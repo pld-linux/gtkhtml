@@ -1,5 +1,6 @@
 
 %define _mver 3.1
+%define	snap	20031227
 
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
@@ -9,11 +10,12 @@ Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
 Summary(zh_CN):	gtkhtml ¿â
 Name:		gtkhtml
 Version:	%{_mver}.4
-Release:	2
+Release:	2.%{snap}.1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	60cfefc34582583773094f9298989de3
+Source0:	%{name}-%{version}-%{snap}.tar.bz2
+# Source0-md5:	0e06d03b2cc908b0ca63e3b2a883c942
+#Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
 #Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -26,7 +28,7 @@ BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.5.1
 BuildRequires:	gal-devel >= 1:2.1.1
 BuildRequires:	intltool
-BuildRequires:	libbonobo-devel
+BuildRequires:	libbonobo-devel >= 2.5.0
 BuildRequires:	libgnomeprintui-devel >= 2.5.0.1
 BuildRequires:	libgnomeui-devel >= 2.5.1
 BuildRequires:	libsoup-devel >= 2.1.1
@@ -70,7 +72,7 @@ Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	gail-devel >= 1.5.1
 Requires:	gal-devel >= 1:2.1.1
-Requires:	libbonobo-devel
+Requires:	libbonobo-devel >= 2.5.0
 Requires:	libgnomeprintui-devel >= 2.5.0.1
 Requires:	libgnomeui-devel >= 2.5.1
 Obsoletes:	libgtkhtml20-devel
@@ -128,6 +130,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch5 -p1
 
 %build
+cp %{_datadir}/automake/mkinstalldirs ./
 rm -f missing
 glib-gettextize --copy --force
 intltoolize --copy --force
