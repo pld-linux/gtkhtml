@@ -9,7 +9,7 @@ Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
+Group(pt):	X11/Bibliotecas
 Group(ru):	X11/Библиотеки
 Group(uk):	X11/Б╕бл╕отеки
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
@@ -51,10 +51,11 @@ Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
+Group(pt):	X11/Bibliotecas
 Group(ru):	X11/Библиотеки
 Group(uk):	X11/Б╕бл╕отеки
 Requires:	%{name} = %{version}
+Requires:	gnome-print-devel >= 0.13
 
 %description devel
 Header files and etc neccessary to develop gtkhtml applications.
@@ -71,7 +72,7 @@ Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
+Group(pt):	X11/Bibliotecas
 Group(ru):	X11/Библиотеки
 Group(uk):	X11/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
