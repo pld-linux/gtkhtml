@@ -1,6 +1,6 @@
 Summary:	gtkhtml library
 Name:		gtkhtml
-Version:	0.5
+Version:	0.6.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
