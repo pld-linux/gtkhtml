@@ -1,6 +1,8 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
+Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
+Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Name:		gtkhtml
 Version:	1.0.2
 Release:	1
@@ -46,11 +48,23 @@ GtkHTML jest rozwijana niezale©nie od KHTMLW,
 Este И o GtkHTML, uma ferramenta de renderizar/imprimir/editar HTML
 leve e pequeno
 
+%description -l ru
+Это GtkHTML, легкий "движок" рендеринга/печати/редактирования HTML.
+Сначала он базировался на KHTMLW, но теперь разрабатывается
+независимо.
+
+%description -l uk
+Це GtkHTML, легке ядро рендерингу/друку/редагування HTML. Воно
+спочатку базувалось на KHTMLW, але тепер розробля╓ться незалежно в╕д
+нього.
+
 %package devel
 Summary:	Header files and etc neccessary to develop gtkhtml applications
 Summary(es):	Bibliotecas, archivos de inclusiСn, e etc. para desarrollar aplicaciones gtkhtml
 Summary(pl):	Pliki nagЁСwkowe i inne nizbЙdne do tworzenia aplikacji u©ywaj╠cych gtkhtml
 Summary(pt_BR):	Bibliotecas, arquivos de inclusЦo, e etc para desenvolver aplicaГУes gtkhtml
+Summary(ru):	Файлы, необходимые для разработки программ с использованием gtkhtml
+Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	bonobo-devel
@@ -76,11 +90,19 @@ wykorzystujacych gtkhtml.
 Bibliotecas, arquivos de inclusЦo, e etc para desenvolver aplicaГУes
 gtkhtml.
 
+%description devel -l ru
+Файлы, необходимые для разработки программ с использованием gtkhtml.
+
+%description devel -l uk
+Файли, необх╕дн╕ для розробки програм з використанням gtkhtml.
+
 %package static
 Summary:	Static gtkhtml libraries
 Summary(es):	Bibliotecas estАticas para desarrollar aplicaciones gtkhtml
 Summary(pl):	Biblioteki statyczne gtkhtml
 Summary(pt_BR):	Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml
+Summary(ru):	Статические библиотеки для разработки программ с gtkhtml
+Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з gtkhtml
 Group:		X11/Libraries
 Requires:	%{name}-devel = %{version}
 
