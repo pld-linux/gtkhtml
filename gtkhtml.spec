@@ -26,7 +26,7 @@ BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	lubgtkhtml20
+Obsoletes:	libgtkhtml20
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
