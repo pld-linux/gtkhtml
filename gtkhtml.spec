@@ -8,12 +8,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.4
-Release:	0.1
+Version:	%{_mver}.5
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-# Source0-md5:	37181c66c5cd02017c29340b4fccbd22
 Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{_mver}/%{name}-%{version}.tar.bz2
+# Source0-md5:	4c9e36d103d3104b727b54e50b3583b5
 #Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -23,12 +23,12 @@ Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel
 Buildrequires:	bonobo-activation
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1.99.6
+BuildRequires:	gal-devel >= 1.99.7
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libsoup-devel >= 1.99.22
+Buildrequires:	libsoup-devel >= 1.99.23
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
