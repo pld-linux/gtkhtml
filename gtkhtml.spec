@@ -1,12 +1,13 @@
 Summary:	gtkhtml library
 Name:		gtkhtml
-Version:	0.6.1
+Version:	0.7
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
+Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
-BuildRequires:	w3c-libwww-devel
+patch0:		%{name}-no_warnings.patch
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	gnome-print-devel >= 0.13
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
@@ -24,6 +25,7 @@ independently of it.
 %package devel
 Summary:	Header files and etc neccessary to develop gtkhtml applications
 Group:		X11/Libraries
+Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -33,6 +35,7 @@ Header files and etc neccessary to develop gtkhtml applications.
 %package static
 Summary:	Static gtkhtml libraries
 Group:		X11/Libraries
+Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
 Requires:	%{name}-devel = %{version}
 
@@ -41,11 +44,11 @@ Static gtkhtml libraries.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
-	--with-bonobo
+	--without-bonobo
 
 %{__make}
 
@@ -54,8 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_sysconfdir}/CORBA/servers/*
+#%{_sysconfdir}/CORBA/servers/*
 
 %files devel
 %defattr(644,root,root,755)
