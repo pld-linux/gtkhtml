@@ -3,9 +3,9 @@
 @@ -191,7 +191,7 @@
  	$(NULL)
  
- libgtkhtml_3_1_la_LDFLAGS = -version-info $(GTKHTML_CURRENT):$(GTKHTML_REVISION):$(GTKHTML_AGE)
--libgtkhtml_3_1_la_LIBADD = $(GTKHTML_LIBS) ../a11y/libgtkhtml-a11y.la $(GAIL_LIBS)
-+libgtkhtml_3_1_la_LIBADD = $(GTKHTML_LIBS) $(top_builddir)/a11y/libgtkhtml-a11y.la $(GAIL_LIBS)
+ libgtkhtml_3_6_la_LDFLAGS = -version-info $(GTKHTML_CURRENT):$(GTKHTML_REVISION):$(GTKHTML_AGE)
+-libgtkhtml_3_6_la_LIBADD = $(GTKHTML_LIBS) ../a11y/libgtkhtml-a11y.la $(GAIL_LIBS)
++libgtkhtml_3_6_la_LIBADD = $(GTKHTML_LIBS) $(top_builddir)/a11y/libgtkhtml-a11y.la $(GAIL_LIBS)
  
  dist-hook:
  	mkdir $(distdir)/tests
