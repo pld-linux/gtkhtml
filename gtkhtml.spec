@@ -1,6 +1,5 @@
-%define		mver		3.0
-%define		subver		%( )
-%define 	cvssnap		20030214
+%define		mver		1.1
+%define		subver		7
 
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
@@ -9,12 +8,11 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{mver}%{subver}
-Release:	0.%{cvssnap}.1
+Version:	%{mver}.%{subver}
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-#Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{mver}/%{name}-%{version}.tar.bz2
-Source0:	%{name}.tgz
+Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{mver}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -34,8 +32,6 @@ BuildRequires:	intltool
 BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-gnome-devel
 BuildRequires:	libtool
-BuildRequires:	gail >= 0.13
-BuildRequires:	libgnomeprintui >= 2.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
 
@@ -129,22 +125,21 @@ Biblioteki statyczne gtkhtml.
 Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 
 %prep
-%setup -q -n %{name}
-#%patch0 -p1
-#%patch1 -p1
-#%patch2 -p1
-#%patch3 -p1
+%setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
-#sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
-#mv -f configure.in.tmp configure.in
-#rm -f missing
-#%{__libtoolize}
-#xml-i18n-toolize --force
-#%{__aclocal} -I macros
-#%{__autoconf}
-#%{__automake}
-./autogen.sh
+sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
+mv -f configure.in.tmp configure.in
+rm -f missing
+%{__libtoolize}
+xml-i18n-toolize --force
+%{__aclocal} -I macros
+%{__autoconf}
+%{__automake}
 GNOME_LIBCONFIG_PATH=/usr/lib
 export GNOME_LIBCONFIG_PATH
 
@@ -178,12 +173,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.so
 %dir %{_datadir}/gtkhtml-%{mver}
-%{_libdir}/bonobo/servers/*
 %{_datadir}/gtkhtml-%{mver}/icons
 %{_datadir}/gtkhtml-%{mver}/keybindingsrc*
 %{_datadir}/gtkhtml-%{mver}/*.glade
-%{_datadir}/gtkhtml-%{mver}/*.xml
+%{_datadir}/control-center/Documents/*
+%{_datadir}/gnome/ui/*
+%{_datadir}/oaf/*.oaf
+%{_applnkdir}/Settings/GNOME/Documents/*
+%{_pixmapsdir}/*
 %{_pkgconfigdir}/*
 
 %files devel
@@ -191,9 +190,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
+%{_libdir}/bonobo/plugin/lib*.la
 %{_includedir}/*
 %{_datadir}/idl/*.idl
+%{_gtkdocdir}/*
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%{_libdir}/bonobo/plugin/lib*.a
