@@ -6,7 +6,7 @@ Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
 Summary(zh_CN): gtkhtml ¿â 
 Name:		gtkhtml
 Version:	1.0.4
-Release:	6
+Release:	7
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/sources/gtkhtml/1.0/%{name}-%{version}.tar.bz2
@@ -18,6 +18,7 @@ Patch2:		%{name}-%{name}-stream.h.patch
 Patch3:		%{name}-get_default_fonts.patch
 Patch4:		%{name}-fontsize.patch
 Patch5:		%{name}-textslave.patch
+Patch6:		%{name}-desktop.patch
 BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
@@ -135,6 +136,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
@@ -192,8 +194,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/bonobo/plugin/lib*.la
+%{_libdir}/lib*.la
+%{_libdir}/bonobo/plugin/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
 %{_includedir}/*
 %{_datadir}/gtkhtml/*.idl
