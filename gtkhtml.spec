@@ -157,7 +157,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	deskdir=%{_applnkdir}/Settings/GNOME/Documents \
-	pkgconfigdir=%{_pkgconfig} \
+	pkgconfigdir=%{_pkgconfigdir} \
 	HTML_DIR=%{_gtkdocdir}
 
 install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/idl
@@ -184,7 +184,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/oaf/*.oaf
 %{_applnkdir}/Settings/GNOME/Documents/*
 %{_pixmapsdir}/*
-%{_pkgconfig}/*
+%{_pkgconfigdir}/*
 
 %files devel
 %defattr(644,root,root,755)
