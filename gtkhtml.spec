@@ -132,8 +132,8 @@ rm -f missing
 libtoolize --copy --force
 xml-i18n-toolize --force
 aclocal -I macros
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 GNOME_LIBCONFIG_PATH=/usr/lib
 export GNOME_LIBCONFIG_PATH
 
