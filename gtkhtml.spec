@@ -1,19 +1,21 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Name:		gtkhtml
-Version:	0.8
-Release:	2
+Version:	0.8.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
 BuildRequires:	ORBit-devel
-#BuildRequires:	bonobo-devel >= 0.9
+BuildRequires:	bonobo-devel >= 0.9
+BuildRequires:	control-center-devel
 BuildRequires:	gal-devel >= 0.4.1
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.13
+BuildRequires:	libglade-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -63,6 +65,8 @@ Biblioteki statyczne gtkhtml.
 %setup -q
 
 %build
+GNOME_LIBCONFIG_PATH=/usr/lib
+export GNOME_LIBCONFIG_PATH
 %configure \
 	--without-bonobo
 
@@ -72,7 +76,8 @@ Biblioteki statyczne gtkhtml.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	deskdir=%{_applnkdir}/Settings/GNOME/Documents
 	
 install components/html-editor/*.idl $RPM_BUILD_ROOT/%{_datadir}/gtkhtml
 
@@ -88,7 +93,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-#%{_sysconfdir}/CORBA/servers/*
+%{_datadir}/control-center/Documents
+%{_applnkdir}/Settings/GNOME/Documents
+%dir %{_datadir}/gtkhtml
+%{_datadir}/gtkhtml/keybindingsrc*
+%{_datadir}/gtkhtml/*.glade
 
 %files devel
 %defattr(644,root,root,755)
@@ -97,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
 %{_includedir}/*
-%{_datadir}/gtkhtml
+%{_datadir}/gtkhtml/*.idl
 
 %files static
 %defattr(644,root,root,755)
