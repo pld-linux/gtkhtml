@@ -1,7 +1,7 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Name:		gtkhtml
-Version:	0.8.1
+Version:	0.8.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
