@@ -149,7 +149,9 @@ export GNOME_LIBCONFIG_PATH
 	--with-bonobo \
 	--with-gconf
 
-%{__make}
+%{__make} \
+	idldir=%{_datadir}/idl \
+	pkgconfigdir=%{_pkgconfigdir}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -158,11 +160,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	deskdir=%{_applnkdir}/Settings/GNOME/Documents \
 	pkgconfigdir=%{_pkgconfigdir} \
+	idldir=%{_datadir}/idl \
 	HTML_DIR=%{_gtkdocdir}
-
-install -d $RPM_BUILD_ROOT%{_datadir}/idl
-install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/idl
-
+	
 %find_lang %{name} --all-name
 
 %clean
