@@ -1,7 +1,7 @@
 Summary:	gtkhtml library
 Name:		gtkhtml
 Version:	0.7
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -9,6 +9,7 @@ Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
 BuildRequires:	ORBit-devel
 #BuildRequires:	bonobo-devel >= 0.9
+BuildRequires:	gal-devel >= 0.3
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.13
