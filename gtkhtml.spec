@@ -37,7 +37,7 @@ It was originally based on KHTMLW, but is now being developed
 independently of it.
 
 %description -l pl
-GtkHTML jesrt "lekk±" bibilotek± do renderingu, drukowania i edycji
+GtkHTML jest "lekk±" bibliotek± do renderingu, drukowania i edycji
 HTML. Pierwotne ¼ród³a tej biblioteki bazuj± na KHTMLW ale teraz
 GtkHTML jest rozwijana niezale¿nie od KHTMLW.
 
