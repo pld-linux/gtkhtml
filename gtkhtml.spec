@@ -1,7 +1,7 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Name:		gtkhtml
-Version:	0.8.2
+Version:	0.8.3
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	deskdir=%{_applnkdir}/Settings/GNOME/Documents
 	
-install components/html-editor/*.idl $RPM_BUILD_ROOT/%{_datadir}/gtkhtml
+install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/gtkhtml
 
 gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
