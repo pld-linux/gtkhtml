@@ -9,7 +9,7 @@ Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
 Summary(zh_CN):	gtkhtml ¿â
 Name:		gtkhtml
 Version:	3.3.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/3.3/%{name}-%{version}.tar.bz2
@@ -17,6 +17,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/3.3/%{name}-%{version}.t
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-gtkhtml-stream.h.patch
 Patch2:		%{name}-link.patch
+Patch3:		%{name}-crash.patch
 BuildRequires:	ORBit2-devel >= 1:2.11.2
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -127,6 +128,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 glib-gettextize --copy --force
