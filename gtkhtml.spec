@@ -8,12 +8,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.5
-Release:	2
+Version:	%{_mver}.7
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	4c9e36d103d3104b727b54e50b3583b5
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
+# Source0-md5:	561d588d113c61e3b1977b3ea09c90ad
 #Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -24,7 +24,7 @@ BuildRequires:	ORBit2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1:1.99.7
+BuildRequires:	gal-devel >= 1:1.99.8
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
@@ -69,7 +69,7 @@ Summary(zh_CN): gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	gail-devel >= 0.13
-Requires:	gal-devel >= 1:1.99.7
+Requires:	gal-devel >= 1:1.99.8
 Requires:	libbonobo-devel
 Requires:	libgnomeprintui-devel >= 2.2.1
 Requires:	libgnomeui-devel
