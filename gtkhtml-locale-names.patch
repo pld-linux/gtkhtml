@@ -1,0 +1,12 @@
+diff -urN aa/gtkhtml-3.1.9/configure.in gtkhtml-3.1.9/configure.in
+--- aa/gtkhtml-3.1.9/configure.in	2004-03-05 18:41:58.000000000 +0100
++++ gtkhtml-3.1.9/configure.in	2004-03-06 13:13:06.049183272 +0100
+@@ -44,7 +44,7 @@
+ AC_SUBST(CPPFLAGS)
+ AC_SUBST(LDFLAGS)
+ 
+-ALL_LINGUAS="am ar az be ca cs da de el en_CA es et eu fi fr ga gl he hi hr hu it ja ko lt lv ms nl nn no pl pt pt_BR ru sk sl sr sr@Latn sv tr uk vi zh_CN zh_TW"
++ALL_LINGUAS="am ar az be ca cs da de el en_CA es et eu fi fr ga gl he hi hr hu it ja ko lt lv ms nb nl nn pl pt pt_BR ru sk sl sr sr@Latn sv tr uk vi zh_CN zh_TW"
+ AM_GLIB_GNU_GETTEXT
+ 
+ GAIL_MODULES="gail >= 0.13"
