@@ -18,7 +18,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{versi
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
 #Patch3:		%{name}-get_default_fonts.patch
-Patch4:		%{name}-disable_testgtkhtml.patch
+#Patch4:		%{name}-disable_testgtkhtml.patch
 Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel >= 2.7.5-1
 BuildRequires:	autoconf
