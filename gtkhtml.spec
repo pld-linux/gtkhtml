@@ -64,15 +64,15 @@ Obsoletes:	lubgtkhtml20-devel
 %description devel
 Header files and etc neccessary to develop gtkhtml applications.
 
-%description -l es devel
+%description devel -l es
 Bibliotecas, archivos de inclusión, y etc para desarrollar
 aplicaciones gtkhtml.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe i reszta niezbêdnych przy tworzeniu aplikacji
 wykorzystujacych gtkhtml.
 
-%description -l pt_BR devel
+%description devel -l pt_BR
 Bibliotecas, arquivos de inclusão, e etc para desenvolver aplicações
 gtkhtml.
 
@@ -87,13 +87,13 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static gtkhtml libraries.
 
-%description -l es static
+%description static -l es
 Bibliotecas estáticas para desarrollar aplicaciones gtkhtml.
 
-%description -l pl static
+%description static -l pl
 Biblioteki statyczne gtkhtml.
 
-%description -l pt_BR static
+%description static -l pt_BR
 Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 
 %prep
@@ -120,7 +120,7 @@ export GNOME_LIBCONFIG_PATH
 	--with-gconf
 
 %{__make}
-        
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -128,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	deskdir=%{_applnkdir}/Settings/GNOME/Documents
-	
+
 install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/gtkhtml
 
 gzip -9nf AUTHORS ChangeLog NEWS README TODO
