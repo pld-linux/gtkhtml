@@ -21,7 +21,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
-BuildRequires:	gal-devel >= 0.11.2
+BuildRequires:	gal-devel >= 0.14
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.13
