@@ -8,12 +8,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.19
+Version:	%{_mver}.20
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	7b842bd67f753c8e9272554a60c56ff2
+# Source0-md5:	7f69cf51f87e9e3a7f9131924f99c5ef
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-gtkhtml-stream.h.patch
 Patch2:		%{name}-link.patch
@@ -22,16 +22,16 @@ BuildRequires:	ORBit2-devel >= 1:2.10.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.6.6
-BuildRequires:	gal-devel >= 1:2.1.13
+BuildRequires:	gal-devel >= 1:2.1.14
 BuildRequires:	gnome-common >= 2.4.0
 BuildRequires:	intltool >= 0.30
 BuildRequires:	libbonoboui-devel >= 2.6.1
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnomeprintui-devel >= 2.6.1
 BuildRequires:	libgnomeui-devel >= 2.6.1
-BuildRequires:	libsoup-devel >= 2.1.12
+BuildRequires:	libsoup-devel >= 2.1.13
 BuildRequires:	libtool
-Requires:	gal >= 1:2.1.13
+Requires:	gal >= 1:2.1.14
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -70,7 +70,7 @@ Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.6.6
-Requires:	gal-devel >= 1:2.1.13
+Requires:	gal-devel >= 1:2.1.14
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libgnomeprintui-devel >= 2.6.1
 Requires:	libgnomeui-devel >= 2.6.1
