@@ -1,88 +1,83 @@
-%define ver      0.1
-%define prefix   /usr
+Summary:	gtkhtml library
+Name:		gtkhtml
+Version:	0.1
+Release:	1
+License:	LGPL
+Group:		X11/Libraries
+Group(pl):	X11/Biblioteki
+Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.gz
+BuildRequires:	w3c-libwww-devel
+BuildRequires:	bonobo-devel >= 0.9
+BuildRequires:	gnome-print-devel >= 0.13
+BuildRequires:	gdk-pixbuf-devel >= 0.6.0
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-Summary: gtkhtml library
-Name: gtkhtml
-Version: %ver
-Release: 1
-Copyright: LGPL
-Group: X11/Libraries
-Source: ftp://ftp.gnome.org/pub/GNOME/sources/gtkhtml/gtkhtml-%{ver}.tar.gz
-BuildRoot: /var/tmp/gtkhtml-%{PACKAGE_VERSION}-root
-Provides: gtkhtml.so.0
-
-Docdir: %{prefix}/doc
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
+%define		_sysconfdir	/etc/X11/GNOME
 
 %description
-This is GtkHTML, a lightweight HTML rendering/printing/editing engine.
-It was originally based on KHTMLW, but is now being developed
-independently of it.
+This is GtkHTML, a lightweight HTML rendering/printing/editing engine. It
+was originally based on KHTMLW, but is now being developed independently of
+it.
 
 %package devel
-Summary: Libraries, includes, etc to develop gtkhtml applications
-Group: X11/libraries
-Requires: gtkhtml
+Summary:	Header files and etc neccessary to develop gtkhtml applications
+Group:		X11/Libraries
+Group(pl):	X11/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
-Libraries, include files, etc you can use to develop gtkhtml applications.
+Header files and etc neccessary to develop gtkhtml applications.
 
+%package static
+Summary:	Static gtkhtml libraries
+Group:		X11/Libraries
+Group(pl):	X11/Biblioteki
+Requires:	%{name}-devel = %{version}
 
-
+%description static
+Static gtkhtml libraries.
 
 %prep
-%setup
+%setup -q
 
 %build
-# Needed for snapshot releases.
-if [ ! -f configure ]; then
-%ifarch alpha
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --host=alpha-redhat-linux --prefix=%prefix --sysconfdir="/etc" --with-bonobo
-%else
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --sysconfdir="/etc" --with-bonobo
-%endif
-else
-%ifarch alpha
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --host=alpha-redhat-linux --prefix=%prefix --sysconfdir="/etc" --with-bonobo
-%else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --sysconfdir="/etc" --with-
-%endif
-fi
+LDFLAGS="-s"; export LDFLAGS
+%configure \
+	--with-bonobo
 
-if [ "$SMP" != "" ]; then
-  (make "MAKE=make -k -j $SMP"; exit 0)
-  make
-else
-  make
-fi
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-# Note how DESTDIR is passed. Using prefix=$RPM_BUILD_ROOT%{prefix} instaead
-# nearly worked, but problems occured for /etc/CORBA/servers, where prefix
-# was ignored completely.
-make -k DESTDIR=$RPM_BUILD_ROOT prefix=%{prefix} install
+make install \
+	DESTDIR=$RPM_BUILD_ROOT
 
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
+
+gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
+%post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-, root, root)
-
-%doc AUTHORS ChangeLog NEWS README COPYING TODO
-%{prefix}/lib/lib*.so.*
-
-# /etc/CORBA/servers/*
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bibdir}/*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%{_sysconfdir}/CORBA/servers/*
 
 %files devel
-%defattr(-, root, root)
+%defattr(644,root,root,755)
+%doc *.gz
+%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/*.sh
+%{_includedir}/*
 
-%{prefix}/lib/lib*.so
-%{prefix}/lib/*a
-%{prefix}/lib/*.sh
-%{prefix}/include/*
+%files static
+%attr(644,root,root) %{_libdir}/lib*.a
