@@ -1,7 +1,7 @@
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
 Name:		gtkhtml
-Version:	0.15.0
+Version:	0.16.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
@@ -21,12 +21,13 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
-BuildRequires:	gal-devel >= 0.14
-BuildRequires:	gdk-pixbuf-devel >= 0.6.0
+BuildRequires:	gal-devel >= 0.15.99.9
+BuildRequires:	gdk-pixbuf-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
-BuildRequires:	gnome-print-devel >= 0.13
+BuildRequires:	gnome-print-devel >= 0.29
 BuildRequires:	libghttp-devel >= 1.0
 BuildRequires:	libglade-devel
+BuildRequires:	GConf-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -56,7 +57,7 @@ Group(pt):	X11/Bibliotecas
 Group(ru):	X11/Библиотеки
 Group(uk):	X11/Б╕бл╕отеки
 Requires:	%{name} = %{version}
-Requires:	gnome-print-devel >= 0.13
+Requires:	gnome-print-devel >= 0.29
 
 %description devel
 Header files and etc neccessary to develop gtkhtml applications.
@@ -101,7 +102,8 @@ automake -a -c
 GNOME_LIBCONFIG_PATH=/usr/lib
 export GNOME_LIBCONFIG_PATH
 %configure \
-	--without-bonobo
+	--without-bonobo \
+	--with-gconf
 
 %{__make}
 
