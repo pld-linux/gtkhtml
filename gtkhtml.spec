@@ -5,12 +5,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.2.0
+Version:	3.2.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/3.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	67cff3717a2914c630a30a78a0ac4d1d
+# Source0-md5:	271bab24a21005537773402964e5550f
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-gtkhtml-stream.h.patch
 Patch2:		%{name}-link.patch
@@ -27,7 +27,7 @@ BuildRequires:	libgnomeprintui-devel >= 2.6.1
 BuildRequires:	libgnomeui-devel >= 2.6.1
 BuildRequires:	libsoup-devel >= 2.2.0
 BuildRequires:	libtool
-Requires:	gal >= 1:2.2.0
+Requires:	gal >= 1:2.2.1
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,7 +66,7 @@ Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.6.6
-Requires:	gal-devel >= 1:2.2.0
+Requires:	gal-devel >= 1:2.2.1
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libgnomeprintui-devel >= 2.6.1
 Requires:	libgnomeui-devel >= 2.6.1
