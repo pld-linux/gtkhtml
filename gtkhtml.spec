@@ -9,7 +9,7 @@ Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
 Summary(zh_CN):	gtkhtml ¿â
 Name:		gtkhtml
 Version:	%{_mver}.10
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{_mver}/%{name}-%{version}.tar.bz2
@@ -29,7 +29,7 @@ BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 BuildRequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel >= 2.3.3.1-2
-BuildRequires:	libsoup-devel >= 1.99.23
+BuildRequires:	libsoup-devel >= 1.99.28
 BuildRequires:	libtool
 BuildRequires:	libiconv-devel
 Obsoletes:	libgtkhtml20
@@ -126,7 +126,7 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch2 -p1
 #%%patch3 -p1
 %patch4 -p1
-#%patch5 -p1
+%patch5 -p1
 
 %build
 rm -f missing
