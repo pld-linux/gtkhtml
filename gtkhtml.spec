@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
 Name:		gtkhtml
 Version:	1.0.1
-Release:	1
+Release:	5
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -69,7 +69,12 @@ Group(pt):	X11/Bibliotecas
 Group(ru):	X11/Библиотеки
 Group(uk):	X11/Б╕бл╕отеки
 Requires:	%{name} = %{version}
+Requires:	bonobo-devel
+Requires:	gal-devel
+Requires:	gdk-pixbuf-devel
 Requires:	gnome-print-devel >= 0.29
+Requires:	libglade-devel
+Requires:	libunicode-devel
 Obsoletes:	lubgtkhtml20-devel
 
 %description devel
