@@ -1,5 +1,5 @@
 
-%define _snap 20030307
+%define _snap 20030315
 %define _mver 3.0
 
 Summary:	Gtkhtml library
@@ -28,7 +28,7 @@ BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libsoup-devel >= 1.99.12
+Buildrequires:	libsoup-devel >= 1.99.14
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
@@ -162,7 +162,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/gnome-gtkhtml-editor*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/bonobo/servers/*
 %{_datadir}/%{name}-%{_mver}
