@@ -8,33 +8,32 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.3.0
+Version:	3.3.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/3.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	eed3beadd23d0c6df9142bc1390b15b8
+# Source0-md5:	f0af0109680b705e182f112acb17063e
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-gtkhtml-stream.h.patch
 Patch2:		%{name}-link.patch
-Patch3:		%{name}-locale-names.patch
-BuildRequires:	ORBit2-devel >= 1:2.10.3
+BuildRequires:	ORBit2-devel >= 1:2.11.2
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.6.6
-BuildRequires:	gal-devel >= 1:2.1.13
+BuildRequires:	gail-devel >= 1.7.0
+BuildRequires:	gal-devel >= 1:2.2.0
 BuildRequires:	gnome-common >= 2.4.0
-BuildRequires:	gnome-icon-theme >= 1.3.6
+BuildRequires:	gnome-icon-theme >= 2.7.90
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.30
 BuildRequires:	libbonoboui-devel >= 2.6.1
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnomeprintui-devel >= 2.7.1
-BuildRequires:	libgnomeui-devel >= 2.7.2
-BuildRequires:	libsoup-devel >= 2.1.12
+BuildRequires:	libgnomeui-devel >= 2.7.92
+BuildRequires:	libsoup-devel >= 2.2.0
 BuildRequires:	libtool
-Requires:	gal >= 1:2.1.13
-Requires:	gnome-icon-theme >= 1.3.6
+Requires:	gal >= 1:2.2.0
+Requires:	gnome-icon-theme >= 2.7.90
 Requires:	gtk+2 >= 2:2.4.4
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -73,11 +72,11 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gail-devel >= 1.6.6
-Requires:	gal-devel >= 1:2.1.13
+Requires:	gail-devel >= 1.7.0
+Requires:	gal-devel >= 1:2.2.0
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libgnomeprintui-devel >= 2.7.1
-Requires:	libgnomeui-devel >= 2.7.2
+Requires:	libgnomeui-devel >= 2.7.92
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
@@ -128,9 +127,6 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-
-mv po/{no,nb}.po
 
 %build
 glib-gettextize --copy --force
@@ -158,6 +154,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --all-name
 
