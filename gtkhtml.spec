@@ -173,11 +173,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gtkhtml/icons
 %{_datadir}/gtkhtml/keybindingsrc*
 %{_datadir}/gtkhtml/*.glade
-%{_datadir}/control-center/Documents
+%{_datadir}/control-center/Documents/*
 #%{_datadir}/control-center/capplets
 %{_datadir}/gnome/ui/*
 %{_datadir}/oaf/*.oaf
-%{_applnkdir}/Settings/GNOME/Documents
+%{_applnkdir}/Settings/GNOME/Documents/*
 %{_sysconfdir}/CORBA/servers/html-component.gnorba
 %{_pixmapsdir}/*
 
