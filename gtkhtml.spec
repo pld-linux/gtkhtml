@@ -160,6 +160,7 @@ rm -rf $RPM_BUILD_ROOT
 	pkgconfigdir=%{_pkgconfigdir} \
 	HTML_DIR=%{_gtkdocdir}
 
+install -d $RPM_BUILD_ROOT%{_datadir}/idl
 install components/html-editor/*.idl $RPM_BUILD_ROOT%{_datadir}/idl
 
 %find_lang %{name} --all-name
