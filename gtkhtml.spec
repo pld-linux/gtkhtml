@@ -1,5 +1,5 @@
 %define		mver		1.1
-%define		subver		6
+%define		subver		7
 
 Summary:	Gtkhtml library
 Summary(pl):	Biblioteka gtkhtml
@@ -9,7 +9,7 @@ Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
 Version:	%{mver}.%{subver}
-Release:	2
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{mver}/%{name}-%{version}.tar.bz2
@@ -23,7 +23,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.9
 BuildRequires:	control-center-devel
-BuildRequires:	gal-devel >= 0.21
+BuildRequires:	gal-devel >= 0.22
 BuildRequires:	gdk-pixbuf-gnome-devel >= 0.8.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	gnome-print-devel >= 0.29
@@ -75,7 +75,7 @@ Summary(zh_CN): gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	bonobo-devel
-Requires:	gal-devel
+Requires:	gal-devel >= 0.22
 Requires:	gdk-pixbuf-gnome-devel
 Requires:	gnome-print-devel >= 0.29
 Requires:	gtk-doc-common
