@@ -1,5 +1,4 @@
 
-%define _snap 20030425
 %define _mver 3.0
 
 Summary:	Gtkhtml library
@@ -9,12 +8,11 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.2
-Release:	0.%{_snap}.1
+Version:	%{_mver}.3
+Release:	0.1
 License:	LGPL
 Group:		X11/Libraries
-#Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{_mver}/%{name}-%{version}.tar.bz2
-Source0:	%{name}-%{version}-%{_snap}.tar.bz2
+Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/gtkhtml/%{_mver}/%{name}-%{version}.tar.bz2
 #Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
@@ -24,12 +22,12 @@ Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel
 Buildrequires:	bonobo-activation
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1.99.3.99-0.20030425.1
+BuildRequires:	gal-devel >= 1.99.4
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libsoup-devel >= 1.99.17-0.20030425.1
+Buildrequires:	libsoup-devel >= 1.99.20
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
@@ -130,9 +128,8 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 rm -f missing
 glib-gettextize --copy --force
 intltoolize --copy --force
-xml-i18n-toolize --force
 %{__libtoolize}
-%{__aclocal} -I macros
+%{__aclocal}
 %{__autoheader}
 %{__autoconf}
 %{__automake}
@@ -152,7 +149,10 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir} \
 	idldir=%{_datadir}/idl
-	
+
+# no static modules - shut up check-files
+rm -f $RPM_BUILD_ROOT/%{_libdir}/%{name}/*.{a,la}
+
 %find_lang %{name} --all-name
 
 %clean
@@ -176,7 +176,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_libdir}/%{name}/*.la
 %{_includedir}/*
 %{_datadir}/idl/*.idl
 %{_pkgconfigdir}/*
