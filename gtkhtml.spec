@@ -6,14 +6,18 @@ Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
 Summary(zh_CN): gtkhtml ¿â 
 Name:		gtkhtml
 Version:	1.0.4
-Release:	5
+Release:	6
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gtkhtml/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/sources/gtkhtml/1.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	1ea977558c2daf9b7f9916800e933b00
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-pixmap.patch
+# this is WRONG, but removing would break API/ABI compat with Ra on alpha :/
 Patch2:		%{name}-%{name}-stream.h.patch
 Patch3:		%{name}-get_default_fonts.patch
+Patch4:		%{name}-fontsize.patch
+Patch5:		%{name}-textslave.patch
 BuildRequires:	GConf-devel
 BuildRequires:	ORBit-devel
 BuildRequires:	autoconf
@@ -129,11 +133,12 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %build
 sed -e s/AM_GNOME_GETTEXT/AM_GNU_GETTEXT/ configure.in > configure.in.tmp
 mv -f configure.in.tmp configure.in
-rm -f missing
 %{__libtoolize}
 xml-i18n-toolize --force
 aclocal -I macros
@@ -176,7 +181,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gtkhtml/keybindingsrc*
 %{_datadir}/gtkhtml/*.glade
 %{_datadir}/control-center/Documents/*
-#%{_datadir}/control-center/capplets
+#%{_datadir}/control-center/capplets/*
 %{_datadir}/gnome/ui/*
 %{_datadir}/oaf/*.oaf
 %{_applnkdir}/Settings/GNOME/Documents/*
