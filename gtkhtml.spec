@@ -6,7 +6,7 @@ Summary(pl):	Biblioteka gtkhtml
 Summary(pt_BR):	Biblioteca gtkhtml
 Summary(ru):	GtkHTML - ÜÔÏ ÂÉÂÌÉÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÁ/ÒÅÄÁËÔÉÒÏ×ÁÎÉÑ HTML
 Summary(uk):	GtkHTML - ÃÅ Â¦ÂÌ¦ÏÔÅËÁ ÒÅÎÄÅÒÉÎÇÕ/ÒÅÄÁÇÕ×ÁÎÎÑ HTML
-Summary(zh_CN): gtkhtml ¿â
+Summary(zh_CN):	gtkhtml ¿â
 Name:		gtkhtml
 Version:	%{_mver}.8
 Release:	1
@@ -65,7 +65,7 @@ Summary(pl):	Pliki nag³ówkowe i inne niezbêdne do tworzenia aplikacji u¿ywaj±cyc
 Summary(pt_BR):	Bibliotecas, arquivos de inclusão, e etc para desenvolver aplicações gtkhtml
 Summary(ru):	æÁÊÌÙ, ÎÅÏÂÈÏÄÉÍÙÅ ÄÌÑ ÒÁÚÒÁÂÏÔËÉ ÐÒÏÇÒÁÍÍ Ó ÉÓÐÏÌØÚÏ×ÁÎÉÅÍ gtkhtml
 Summary(uk):	æÁÊÌÉ, ÎÅÏÂÈ¦ÄÎ¦ ÄÌÑ ÒÏÚÒÏÂËÉ ÐÒÏÇÒÁÍ Ú ×ÉËÏÒÉÓÔÁÎÎÑÍ gtkhtml
-Summary(zh_CN): gtkhtml¿ª·¢¿â
+Summary(zh_CN):	gtkhtml¿ª·¢¿â
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
 Requires:	gail-devel >= 0.13
