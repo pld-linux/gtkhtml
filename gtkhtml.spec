@@ -1,5 +1,5 @@
 
-%define _snap 20030405
+%define _snap 20030412
 %define _mver 3.0
 
 Summary:	Gtkhtml library
@@ -9,7 +9,7 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN): gtkhtml ©Б
 Name:		gtkhtml
-Version:	%{_mver}.1
+Version:	%{_mver}.2
 Release:	0.%{_snap}.1
 License:	LGPL
 Group:		X11/Libraries
@@ -20,15 +20,16 @@ Patch1:		%{name}-pixmap.patch
 Patch2:		%{name}-%{name}-stream.h.patch
 #Patch3:		%{name}-get_default_fonts.patch
 Patch4:		%{name}-disable_testgtkhtml.patch
+Patch5:		%{name}-link.patch
 BuildRequires:	ORBit2-devel
 Buildrequires:	bonobo-activation
 BuildRequires:	gail-devel >= 0.13
-BuildRequires:	gal-devel >= 1.99.2.99-0.20030405.1
+BuildRequires:	gal-devel >= 1.99.3.99-0.20030412.1
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel
 Buildrequires:	libgnomeprintui-devel >= 2.2.1
 BuildRequires:	libgnomeui-devel
-Buildrequires:	libsoup-devel >= 1.99.16-0.20030405.1
+Buildrequires:	libsoup-devel >= 1.99.17-0.20030412.1
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgtkhtml20
@@ -67,7 +68,7 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN): gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
-Requires:	gal-devel >= 1.99.2.99-0.20030405.1
+Requires:	gal-devel >= 1.99.3.99-0.20030412.1
 Requires:	libbonobo-devel
 Requires:	libgnomeprint-devel >= 2.2.0
 Requires:	libunicode-devel
@@ -123,6 +124,7 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 %patch2 -p1
 #%%patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 rm -f missing
