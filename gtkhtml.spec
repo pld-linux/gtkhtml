@@ -5,31 +5,33 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.6.1
+Version:	3.6.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	df30dbbd12b6a3f1355a9a82aa430781
+# Source0-md5:	37465fde0f1e1d7ba2284c5a4fd06fe7
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
 BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.8.2
-BuildRequires:	gal-devel >= 1:2.4.1
+BuildRequires:	gail-devel >= 1.8.3
+BuildRequires:	gal-devel >= 1:2.4.2
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-icon-theme >= 2.10.0
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeprintui-devel >= 2.10.0
-BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libgnomeprintui-devel >= 2.10.2
+BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libsoup-devel >= 2.2.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	gal >= 1:2.4.1
+BuildRequires:	rpmbuild(macros) >= 1.197
+Requires(post,postun):	/sbin/ldconfig
+Requires:	gal >= 1:2.4.2
 Requires:	gnome-icon-theme >= 2.10.0
 Requires:	gtk+2 >= 2:2.6.4
 Obsoletes:	libgtkhtml20
@@ -69,10 +71,10 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gail-devel >= 1.8.2
-Requires:	gal-devel >= 1:2.4.1
-Requires:	libgnomeprintui-devel >= 2.10.0
-Requires:	libgnomeui-devel >= 2.10.0
+Requires:	gail-devel >= 1.8.3
+Requires:	gal-devel >= 1:2.4.2
+Requires:	libgnomeprintui-devel >= 2.10.2
+Requires:	libgnomeui-devel >= 2.10.0-2
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
@@ -125,8 +127,8 @@ Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
 %patch2 -p1
 
 %build
-glib-gettextize --copy --force
-intltoolize --copy --force
+%{__glib_gettextize}
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoheader}
@@ -157,8 +159,11 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post
+%ldconfig_post
+
+%postun
+%ldconfig_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
