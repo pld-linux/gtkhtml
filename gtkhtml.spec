@@ -5,12 +5,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.6.2
+Version:	3.7.3
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	37465fde0f1e1d7ba2284c5a4fd06fe7
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	e045e1fd9ffe255128a43aeea56e7246
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
@@ -18,7 +18,7 @@ BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.8.3
-BuildRequires:	gal-devel >= 1:2.4.2
+BuildRequires:	gal-devel >= 1:2.5.3
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-icon-theme >= 2.10.0
 BuildRequires:	gtk+2-devel >= 2:2.6.4
@@ -30,7 +30,7 @@ BuildRequires:	libsoup-devel >= 2.2.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gal >= 1:2.4.2
+Requires:	gal >= 1:2.5.3
 Requires:	gnome-icon-theme >= 2.10.0
 Requires:	gtk+2 >= 2:2.6.4
 Obsoletes:	libgtkhtml20
@@ -168,7 +168,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.so
 %{_libdir}/bonobo/servers/*
-%{_datadir}/%{name}-3.6
+%{_datadir}/%{name}-3.8
 %{_pixmapsdir}/*
 
 %files devel
