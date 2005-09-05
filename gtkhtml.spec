@@ -5,12 +5,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.6.2
+Version:	3.8.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	37465fde0f1e1d7ba2284c5a4fd06fe7
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	293f8277a263378b6b9f5c30d72511a3
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
@@ -18,19 +18,17 @@ BuildRequires:	ORBit2-devel >= 1:2.12.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.8.3
-BuildRequires:	gal-devel >= 1:2.4.2
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-icon-theme >= 2.10.0
-BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	intltool >= 0.33
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeprintui-devel >= 2.10.2
-BuildRequires:	libgnomeui-devel >= 2.10.0-2
+BuildRequires:	libgnomeprintui-devel >= 2.11.0-3
+BuildRequires:	libgnomeui-devel >= 2.11.2-2
 BuildRequires:	libsoup-devel >= 2.2.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gal >= 1:2.4.2
 Requires:	gnome-icon-theme >= 2.10.0
 Requires:	gtk+2 >= 2:2.6.4
 Obsoletes:	libgtkhtml20
@@ -71,9 +69,8 @@ Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.8.3
-Requires:	gal-devel >= 1:2.4.2
-Requires:	libgnomeprintui-devel >= 2.10.2
-Requires:	libgnomeui-devel >= 2.10.0-2
+Requires:	libgnomeprintui-devel >= 2.11.0-3
+Requires:	libgnomeui-devel >= 2.11.2-2
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
@@ -168,7 +165,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.so
 %{_libdir}/bonobo/servers/*
-%{_datadir}/%{name}-3.6
+%{_datadir}/%{name}-3.8
 %{_pixmapsdir}/*
 
 %files devel
