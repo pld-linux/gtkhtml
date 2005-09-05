@@ -1,11 +1,12 @@
---- gtkhtml-3.1.4/src/Makefile.am.wiget	2003-11-18 20:06:53.000000000 +0100
-+++ gtkhtml-3.1.4/src/Makefile.am	2003-12-08 17:27:59.081634921 +0100
-@@ -191,7 +191,7 @@
+diff -aruN gtkhtml-3.7.3.orig/src/Makefile.am gtkhtml-3.7.3/src/Makefile.am
+--- gtkhtml-3.7.3.orig/src/Makefile.am	2005-05-17 16:47:36.000000000 +0200
++++ gtkhtml-3.7.3/src/Makefile.am	2005-07-04 19:47:19.237577336 +0200
+@@ -192,7 +192,7 @@
  	$(NULL)
  
- libgtkhtml_3_6_la_LDFLAGS = -version-info $(GTKHTML_CURRENT):$(GTKHTML_REVISION):$(GTKHTML_AGE)
--libgtkhtml_3_6_la_LIBADD = $(GTKHTML_LIBS) ../a11y/libgtkhtml-a11y.la $(GAIL_LIBS)
-+libgtkhtml_3_6_la_LIBADD = $(GTKHTML_LIBS) $(top_builddir)/a11y/libgtkhtml-a11y.la $(GAIL_LIBS)
+ libgtkhtml_3_8_la_LDFLAGS = -version-info $(GTKHTML_CURRENT):$(GTKHTML_REVISION):$(GTKHTML_AGE) -no-undefined
+-libgtkhtml_3_8_la_LIBADD = $(GTKHTML_LIBS) ../a11y/libgtkhtml-a11y.la $(GAIL_LIBS) $(REGEX_LIBS)
++libgtkhtml_3_8_la_LIBADD = $(GTKHTML_LIBS) $(top_builddir)/a11y/libgtkhtml-a11y.la $(GAIL_LIBS) $(REGEX_LIBS)
  
  dist-hook:
  	mkdir $(distdir)/tests
