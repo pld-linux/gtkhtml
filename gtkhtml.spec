@@ -67,7 +67,7 @@ Summary(pt_BR):	Bibliotecas, arquivos de inclusЦo, e etc para desenvolver aplica
 Summary(ru):	Файлы, необходимые для разработки программ с использованием gtkhtml
 Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
-Group:		X11/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.8.3
 Requires:	libgnomeprintui-devel >= 2.11.0-3
@@ -103,8 +103,9 @@ Summary(pl):	Biblioteki statyczne gtkhtml
 Summary(pt_BR):	Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml
 Summary(ru):	Статические библиотеки для разработки программ с gtkhtml
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з gtkhtml
-Group:		X11/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Obsoletes:	gal-static
 
 %description static
 Static gtkhtml libraries.
