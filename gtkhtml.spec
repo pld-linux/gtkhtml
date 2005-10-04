@@ -5,12 +5,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.8.0
-Release:	3
+Version:	3.8.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	293f8277a263378b6b9f5c30d72511a3
+# Source0-md5:	4c66f0eb30d6c26a09ee2c8d60d9c520
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
