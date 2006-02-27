@@ -5,12 +5,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.8.0
+Version:	3.9.92
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	293f8277a263378b6b9f5c30d72511a3
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	ac1ff0fd9a0dd0adf5bde482739dd5b6
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.10.0
 Requires:	gtk+2 >= 2:2.6.4
+Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,11 +67,12 @@ Summary(pt_BR):	Bibliotecas, arquivos de inclusЦo, e etc para desenvolver aplica
 Summary(ru):	Файлы, необходимые для разработки программ с использованием gtkhtml
 Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
-Group:		X11/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.8.3
 Requires:	libgnomeprintui-devel >= 2.11.0-3
 Requires:	libgnomeui-devel >= 2.11.2-2
+Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
@@ -101,8 +103,9 @@ Summary(pl):	Biblioteki statyczne gtkhtml
 Summary(pt_BR):	Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml
 Summary(ru):	Статические библиотеки для разработки программ с gtkhtml
 Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з gtkhtml
-Group:		X11/Libraries
+Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Obsoletes:	gal-static
 
 %description static
 Static gtkhtml libraries.
