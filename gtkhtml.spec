@@ -5,34 +5,34 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.11.92
+Version:	3.12.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	382767e3de3b0f2633bdccfbecb86ec6
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	2c4f96ccbb2a74cf22fe81b865862cd2
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
-BuildRequires:	ORBit2-devel >= 1:2.14.2
+BuildRequires:	ORBit2-devel >= 1:2.14.3
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.9.1
+BuildRequires:	gail-devel >= 1.9.2
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-icon-theme >= 2.15.91
-BuildRequires:	gtk+2-devel >= 2:2.10.2
+BuildRequires:	gnome-icon-theme >= 2.16.0.1
+BuildRequires:	gtk+2-devel >= 2:2.10.3
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeprintui-devel >= 2.12.1
-BuildRequires:	libgnomeui-devel >= 2.15.90
+BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libsoup-devel >= 2.2.96
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gnome-icon-theme >= 2.15.91
-Requires:	gtk+2 >= 2:2.10.2
+Requires:	gnome-icon-theme >= 2.16.0.1
+Requires:	gtk+2 >= 2:2.10.3
 Requires:	libgnomeprintui >= 2.12.1
-Requires:	libgnomeui >= 2.15.91
+Requires:	libgnomeui >= 2.16.0
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,9 +71,9 @@ Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
 Summary(zh_CN):	gtkhtml©╙╥╒©Б
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gail-devel >= 1.9.1
+Requires:	gail-devel >= 1.9.2
 Requires:	libgnomeprintui-devel >= 2.12.1
-Requires:	libgnomeui-devel >= 2.15.91
+Requires:	libgnomeui-devel >= 2.16.0
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
 
