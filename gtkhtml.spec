@@ -5,12 +5,12 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.12.1
+Version:	3.12.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	ac86f5770ea2d054644d14e7aa673eaa
+# Source0-md5:	8c943647fd26cf4594b2e97055e22584
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
@@ -20,19 +20,19 @@ BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.9.3
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-icon-theme >= 2.16.0.1
-BuildRequires:	gtk+2-devel >= 2:2.10.5
-BuildRequires:	intltool >= 0.35
+BuildRequires:	gtk+2-devel >= 2:2.10.6
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeprintui-devel >= 2.12.1
-BuildRequires:	libgnomeui-devel >= 2.16.0
+BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libsoup-devel >= 2.2.96
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.16.0.1
-Requires:	gtk+2 >= 2:2.10.5
+Requires:	gtk+2 >= 2:2.10.6
 Requires:	libgnomeprintui >= 2.12.1
-Requires:	libgnomeui >= 2.16.0
+Requires:	libgnomeui >= 2.16.1
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -73,7 +73,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.9.3
 Requires:	libgnomeprintui-devel >= 2.12.1
-Requires:	libgnomeui-devel >= 2.16.0
+Requires:	libgnomeui-devel >= 2.16.1
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
 
