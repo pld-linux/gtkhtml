@@ -5,32 +5,32 @@ Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
 Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
 Summary(zh_CN):	gtkhtml ©Б
 Name:		gtkhtml
-Version:	3.12.2
+Version:	3.12.3
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	8c943647fd26cf4594b2e97055e22584
+# Source0-md5:	b580590014988b02e51b66be65319570
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
-BuildRequires:	ORBit2-devel >= 1:2.14.3
+BuildRequires:	ORBit2-devel >= 1:2.14.5
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.9.3
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-icon-theme >= 2.16.0.1
-BuildRequires:	gtk+2-devel >= 2:2.10.6
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	intltool >= 0.35.4
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomeprintui-devel >= 2.12.1
 BuildRequires:	libgnomeui-devel >= 2.16.1
-BuildRequires:	libsoup-devel >= 2.2.96
+BuildRequires:	libsoup-devel >= 2.2.99
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.16.0.1
-Requires:	gtk+2 >= 2:2.10.6
+Requires:	gtk+2 >= 2:2.10.9
 Requires:	libgnomeprintui >= 2.12.1
 Requires:	libgnomeui >= 2.16.1
 Obsoletes:	gal
@@ -164,21 +164,21 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libgtkhtml-3.8.so.*.*.*
 %dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/*.so
-%{_libdir}/bonobo/servers/*
+%attr(755,root,root) %{_libdir}/%{name}/libgnome-gtkhtml-editor-3.8.so
+%{_libdir}/bonobo/servers/GNOME_GtkHTML_Editor-3.8.server
 %{_datadir}/%{name}-3.8
-%{_pixmapsdir}/*
+%{_pixmapsdir}/*.png
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_datadir}/idl/*.idl
-%{_pkgconfigdir}/*
+%attr(755,root,root) %{_libdir}/libgtkhtml-3.8.so
+%{_libdir}/libgtkhtml-3.8.la
+%{_includedir}/libgtkhtml-3.8
+%{_datadir}/idl/Editor.idl
+%{_pkgconfigdir}/libgtkhtml-3.8.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgtkhtml-3.8.a
