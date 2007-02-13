@@ -1,9 +1,9 @@
 Summary:	Gtkhtml library
-Summary(pl.UTF-8):   Biblioteka gtkhtml
-Summary(pt_BR.UTF-8):   Biblioteca gtkhtml
-Summary(ru.UTF-8):   GtkHTML - это библиотека рендеринга/редактирования HTML
-Summary(uk.UTF-8):   GtkHTML - це бібліотека рендерингу/редагування HTML
-Summary(zh_CN.UTF-8):   gtkhtml 库
+Summary(pl.UTF-8):	Biblioteka gtkhtml
+Summary(pt_BR.UTF-8):	Biblioteca gtkhtml
+Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/редактирования HTML
+Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
+Summary(zh_CN.UTF-8):	gtkhtml 库
 Name:		gtkhtml
 Version:	3.12.3
 Release:	1
@@ -63,12 +63,12 @@ leve e pequeno
 
 %package devel
 Summary:	Header files etc. neccessary to develop gtkhtml applications
-Summary(es.UTF-8):   Bibliotecas, archivos de inclusión, e etc. para desarrollar aplicaciones gtkhtml
-Summary(pl.UTF-8):   Pliki nagłówkowe i inne niezbędne do tworzenia aplikacji używających gtkhtml
-Summary(pt_BR.UTF-8):   Bibliotecas, arquivos de inclusão, e etc para desenvolver aplicações gtkhtml
-Summary(ru.UTF-8):   Файлы, необходимые для разработки программ с использованием gtkhtml
-Summary(uk.UTF-8):   Файли, необхідні для розробки програм з використанням gtkhtml
-Summary(zh_CN.UTF-8):   gtkhtml开发库
+Summary(es.UTF-8):	Bibliotecas, archivos de inclusión, e etc. para desarrollar aplicaciones gtkhtml
+Summary(pl.UTF-8):	Pliki nagłówkowe i inne niezbędne do tworzenia aplikacji używających gtkhtml
+Summary(pt_BR.UTF-8):	Bibliotecas, arquivos de inclusão, e etc para desenvolver aplicações gtkhtml
+Summary(ru.UTF-8):	Файлы, необходимые для разработки программ с использованием gtkhtml
+Summary(uk.UTF-8):	Файли, необхідні для розробки програм з використанням gtkhtml
+Summary(zh_CN.UTF-8):	gtkhtml开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.9.3
@@ -100,11 +100,11 @@ gtkhtml.
 
 %package static
 Summary:	Static gtkhtml libraries
-Summary(es.UTF-8):   Bibliotecas estáticas para desarrollar aplicaciones gtkhtml
-Summary(pl.UTF-8):   Biblioteki statyczne gtkhtml
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolver aplicações gtkhtml
-Summary(ru.UTF-8):   Статические библиотеки для разработки программ с gtkhtml
-Summary(uk.UTF-8):   Статичні бібліотеки для розробки програм з gtkhtml
+Summary(es.UTF-8):	Bibliotecas estáticas para desarrollar aplicaciones gtkhtml
+Summary(pl.UTF-8):	Biblioteki statyczne gtkhtml
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolver aplicações gtkhtml
+Summary(ru.UTF-8):	Статические библиотеки для разработки программ с gtkhtml
+Summary(uk.UTF-8):	Статичні бібліотеки для розробки програм з gtkhtml
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Obsoletes:	gal-static
