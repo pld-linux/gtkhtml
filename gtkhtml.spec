@@ -1,36 +1,40 @@
 Summary:	Gtkhtml library
-Summary(pl):	Biblioteka gtkhtml
-Summary(pt_BR):	Biblioteca gtkhtml
-Summary(ru):	GtkHTML - это библиотека рендеринга/редактирования HTML
-Summary(uk):	GtkHTML - це б╕бл╕отека рендерингу/редагування HTML
-Summary(zh_CN):	gtkhtml ©Б
+Summary(pl.UTF-8):	Biblioteka gtkhtml
+Summary(pt_BR.UTF-8):	Biblioteca gtkhtml
+Summary(ru.UTF-8):	GtkHTML - я█я┌п╬ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟ я─п╣п╫п╢п╣я─п╦п╫пЁп╟/я─п╣п╢п╟п╨я┌п╦я─п╬п╡п╟п╫п╦я▐ HTML
+Summary(uk.UTF-8):	GtkHTML - я├п╣ п╠я√п╠п╩я√п╬я┌п╣п╨п╟ я─п╣п╫п╢п╣я─п╦п╫пЁя┐/я─п╣п╢п╟пЁя┐п╡п╟п╫п╫я▐ HTML
+Summary(zh_CN.UTF-8):	gtkhtml Е╨⌠
 Name:		gtkhtml
-Version:	3.8.0
+Version:	3.13.92
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	293f8277a263378b6b9f5c30d72511a3
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	45547246d45d9484c731339215a1fb53
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
-BuildRequires:	ORBit2-devel >= 1:2.12.1
+BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.8.3
-BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnome-icon-theme >= 2.10.0
-BuildRequires:	gtk+2-devel >= 2:2.8.0
-BuildRequires:	intltool >= 0.33
-BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeprintui-devel >= 2.11.0-3
-BuildRequires:	libgnomeui-devel >= 2.11.2-2
-BuildRequires:	libsoup-devel >= 2.2.3
+BuildRequires:	gail-devel >= 1.9.4
+BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-icon-theme >= 2.17.91
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	intltool >= 0.35.5
+BuildRequires:	libbonoboui-devel >= 2.17.94
+BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libgnomeprintui-devel >= 2.17.92
+BuildRequires:	libgnomeui-devel >= 2.17.92
+BuildRequires:	libsoup-devel >= 2.2.100
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gnome-icon-theme >= 2.10.0
-Requires:	gtk+2 >= 2:2.6.4
+Requires:	gnome-icon-theme >= 2.17.91
+Requires:	gtk+2 >= 2:2.10.9
+Requires:	libgnomeprintui >= 2.17.92
+Requires:	libgnomeui >= 2.17.92
+Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,82 +43,84 @@ This is GtkHTML, a lightweight HTML rendering/printing/editing engine.
 It was originally based on KHTMLW, but is now being developed
 independently of it.
 
-%description -l pl
-GtkHTML jest "lekk╠" bibliotek╠ do renderingu, drukowania i edycji
-HTML. Pierwotne ╪rСdЁa tej biblioteki bazuj╠ na KHTMLW ale teraz
-GtkHTML jest rozwijana niezale©nie od KHTMLW.
+%description -l pl.UTF-8
+GtkHTML jest "lekkд┘" bibliotekд┘ do renderingu, drukowania i edycji
+HTML. Pierwotne е╨rцЁdе┌a tej biblioteki bazujд┘ na KHTMLW ale teraz
+GtkHTML jest rozwijana niezaleе╪nie od KHTMLW.
 
-%description -l pt_BR
-Este И o GtkHTML, uma ferramenta de renderizar/imprimir/editar HTML
+%description -l pt_BR.UTF-8
+Este ц╘ o GtkHTML, uma ferramenta de renderizar/imprimir/editar HTML
 leve e pequeno
 
-%description -l ru
-Это GtkHTML, легкий "движок" рендеринга/печати/редактирования HTML.
-Сначала он базировался на KHTMLW, но теперь разрабатывается
-независимо.
+%description -l ru.UTF-8
+п╜я┌п╬ GtkHTML, п╩п╣пЁп╨п╦п╧ "п╢п╡п╦п╤п╬п╨" я─п╣п╫п╢п╣я─п╦п╫пЁп╟/п©п╣я┤п╟я┌п╦/я─п╣п╢п╟п╨я┌п╦я─п╬п╡п╟п╫п╦я▐ HTML.
+п║п╫п╟я┤п╟п╩п╟ п╬п╫ п╠п╟п╥п╦я─п╬п╡п╟п╩я│я▐ п╫п╟ KHTMLW, п╫п╬ я┌п╣п©п╣я─я▄ я─п╟п╥я─п╟п╠п╟я┌я▀п╡п╟п╣я┌я│я▐
+п╫п╣п╥п╟п╡п╦я│п╦п╪п╬.
 
-%description -l uk
-Це GtkHTML, легке ядро рендерингу/друку/редагування HTML. Воно
-спочатку базувалось на KHTMLW, але тепер розробля╓ться незалежно в╕д
-нього.
+%description -l uk.UTF-8
+п╕п╣ GtkHTML, п╩п╣пЁп╨п╣ я▐п╢я─п╬ я─п╣п╫п╢п╣я─п╦п╫пЁя┐/п╢я─я┐п╨я┐/я─п╣п╢п╟пЁя┐п╡п╟п╫п╫я▐ HTML. п▓п╬п╫п╬
+я│п©п╬я┤п╟я┌п╨я┐ п╠п╟п╥я┐п╡п╟п╩п╬я│я▄ п╫п╟ KHTMLW, п╟п╩п╣ я┌п╣п©п╣я─ я─п╬п╥я─п╬п╠п╩я▐я■я┌я▄я│я▐ п╫п╣п╥п╟п╩п╣п╤п╫п╬ п╡я√п╢
+п╫я▄п╬пЁп╬.
 
 %package devel
 Summary:	Header files etc. neccessary to develop gtkhtml applications
-Summary(es):	Bibliotecas, archivos de inclusiСn, e etc. para desarrollar aplicaciones gtkhtml
-Summary(pl):	Pliki nagЁСwkowe i inne niezbЙdne do tworzenia aplikacji u©ywaj╠cych gtkhtml
-Summary(pt_BR):	Bibliotecas, arquivos de inclusЦo, e etc para desenvolver aplicaГУes gtkhtml
-Summary(ru):	Файлы, необходимые для разработки программ с использованием gtkhtml
-Summary(uk):	Файли, необх╕дн╕ для розробки програм з використанням gtkhtml
-Summary(zh_CN):	gtkhtml©╙╥╒©Б
-Group:		X11/Libraries
+Summary(es.UTF-8):	Bibliotecas, archivos de inclusiцЁn, e etc. para desarrollar aplicaciones gtkhtml
+Summary(pl.UTF-8):	Pliki nagе┌цЁwkowe i inne niezbд≥dne do tworzenia aplikacji uе╪ywajд┘cych gtkhtml
+Summary(pt_BR.UTF-8):	Bibliotecas, arquivos de inclusцёo, e etc para desenvolver aplicaц╖ц╣es gtkhtml
+Summary(ru.UTF-8):	п╓п╟п╧п╩я▀, п╫п╣п╬п╠я┘п╬п╢п╦п╪я▀п╣ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ gtkhtml
+Summary(uk.UTF-8):	п╓п╟п╧п╩п╦, п╫п╣п╬п╠я┘я√п╢п╫я√ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ gtkhtml
+Summary(zh_CN.UTF-8):	gtkhtmlЕ╪─Е▐▒Е╨⌠
+Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gail-devel >= 1.8.3
-Requires:	libgnomeprintui-devel >= 2.11.0-3
-Requires:	libgnomeui-devel >= 2.11.2-2
+Requires:	gail-devel >= 1.9.4
+Requires:	libgnomeprintui-devel >= 2.17.92
+Requires:	libgnomeui-devel >= 2.17.92
+Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
 
 %description devel
 Header files etc. neccessary to develop gtkhtml applications.
 
-%description devel -l es
-Bibliotecas, archivos de inclusiСn, y etc para desarrollar
+%description devel -l es.UTF-8
+Bibliotecas, archivos de inclusiцЁn, y etc para desarrollar
 aplicaciones gtkhtml.
 
-%description devel -l pl
-Pliki nagЁСwkowe i reszta niezbЙdnych przy tworzeniu aplikacji
-wykorzystuj╠cych gtkhtml.
+%description devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe i reszta niezbд≥dnych przy tworzeniu aplikacji
+wykorzystujд┘cych gtkhtml.
 
-%description devel -l pt_BR
-Bibliotecas, arquivos de inclusЦo, e etc para desenvolver aplicaГУes
+%description devel -l pt_BR.UTF-8
+Bibliotecas, arquivos de inclusцёo, e etc para desenvolver aplicaц╖ц╣es
 gtkhtml.
 
-%description devel -l ru
-Файлы, необходимые для разработки программ с использованием gtkhtml.
+%description devel -l ru.UTF-8
+п╓п╟п╧п╩я▀, п╫п╣п╬п╠я┘п╬п╢п╦п╪я▀п╣ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ gtkhtml.
 
-%description devel -l uk
-Файли, необх╕дн╕ для розробки програм з використанням gtkhtml.
+%description devel -l uk.UTF-8
+п╓п╟п╧п╩п╦, п╫п╣п╬п╠я┘я√п╢п╫я√ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪ gtkhtml.
 
 %package static
 Summary:	Static gtkhtml libraries
-Summary(es):	Bibliotecas estАticas para desarrollar aplicaciones gtkhtml
-Summary(pl):	Biblioteki statyczne gtkhtml
-Summary(pt_BR):	Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml
-Summary(ru):	Статические библиотеки для разработки программ с gtkhtml
-Summary(uk):	Статичн╕ б╕бл╕отеки для розробки програм з gtkhtml
-Group:		X11/Libraries
+Summary(es.UTF-8):	Bibliotecas estц║ticas para desarrollar aplicaciones gtkhtml
+Summary(pl.UTF-8):	Biblioteki statyczne gtkhtml
+Summary(pt_BR.UTF-8):	Bibliotecas estц║ticas para desenvolver aplicaц╖ц╣es gtkhtml
+Summary(ru.UTF-8):	п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п©я─п╬пЁя─п╟п╪п╪ я│ gtkhtml
+Summary(uk.UTF-8):	п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦ п©я─п╬пЁя─п╟п╪ п╥ gtkhtml
+Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Obsoletes:	gal-static
 
 %description static
 Static gtkhtml libraries.
 
-%description static -l es
-Bibliotecas estАticas para desarrollar aplicaciones gtkhtml.
+%description static -l es.UTF-8
+Bibliotecas estц║ticas para desarrollar aplicaciones gtkhtml.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne gtkhtml.
 
-%description static -l pt_BR
-Bibliotecas estАticas para desenvolver aplicaГУes gtkhtml.
+%description static -l pt_BR.UTF-8
+Bibliotecas estц║ticas para desenvolver aplicaц╖ц╣es gtkhtml.
 
 %prep
 %setup -q
@@ -148,8 +154,6 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
 %find_lang %{name} --all-name
 
 %clean
@@ -161,21 +165,21 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libgtkhtml-3.8.so.*.*.*
 %dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/*.so
-%{_libdir}/bonobo/servers/*
+%attr(755,root,root) %{_libdir}/%{name}/libgnome-gtkhtml-editor-3.8.so
+%{_libdir}/bonobo/servers/GNOME_GtkHTML_Editor-3.8.server
 %{_datadir}/%{name}-3.8
-%{_pixmapsdir}/*
+%{_pixmapsdir}/*.png
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_datadir}/idl/*.idl
-%{_pkgconfigdir}/*
+%attr(755,root,root) %{_libdir}/libgtkhtml-3.8.so
+%{_libdir}/libgtkhtml-3.8.la
+%{_includedir}/libgtkhtml-3.8
+%{_datadir}/idl/Editor.idl
+%{_pkgconfigdir}/libgtkhtml-3.8.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgtkhtml-3.8.a
