@@ -5,35 +5,35 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	gtkhtml 库
 Name:		gtkhtml
-Version:	3.14.3
+Version:	3.15.92
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gtkhtml/3.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	7c028f07e0eb061b0a895ac514265cf1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	a37457a6de11ae2fa6661ecf2ae33958
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
-BuildRequires:	ORBit2-devel >= 1:2.14.7
+BuildRequires:	ORBit2-devel >= 1:2.14.8
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.18.0
+BuildRequires:	gail-devel >= 1.19.6
 BuildRequires:	gnome-common >= 2.18.0
-BuildRequires:	gnome-icon-theme >= 2.18.0
+BuildRequires:	gnome-icon-theme >= 2.19.91
 BuildRequires:	gtk+2-devel >= 2:2.10.14
-BuildRequires:	intltool >= 0.35.5
-BuildRequires:	libbonoboui-devel >= 2.18.0
-BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	intltool >= 0.36.1
+BuildRequires:	libbonoboui-devel >= 2.19.6
+BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeprintui-devel >= 2.18.0
-BuildRequires:	libgnomeui-devel >= 2.18.1
+BuildRequires:	libgnomeui-devel >= 2.19.1
 BuildRequires:	libsoup-devel >= 2.2.100
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gnome-icon-theme >= 2.18.0
+Requires:	gnome-icon-theme >= 2.19.91
 Requires:	gtk+2 >= 2:2.10.14
 Requires:	libgnomeprintui >= 2.18.0
-Requires:	libgnomeui >= 2.18.1
+Requires:	libgnomeui >= 2.19.1
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -72,9 +72,9 @@ Summary(uk.UTF-8):	Файли, необхідні для розробки про
 Summary(zh_CN.UTF-8):	gtkhtml开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gail-devel >= 1.18.0
+Requires:	gail-devel >= 1.19.6
 Requires:	libgnomeprintui-devel >= 2.18.0
-Requires:	libgnomeui-devel >= 2.18.1
+Requires:	libgnomeui-devel >= 2.19.1
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
 
