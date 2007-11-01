@@ -6,7 +6,7 @@ Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/ре
 Summary(zh_CN.UTF-8):	gtkhtml 库
 Name:		gtkhtml
 Version:	3.16.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.16/%{name}-%{version}.tar.bz2
@@ -24,7 +24,6 @@ BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libbonoboui-devel >= 2.20.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeprintui-devel >= 2.18.1
 BuildRequires:	libgnomeui-devel >= 2.20.0
 BuildRequires:	libsoup-devel >= 2.2.100
 BuildRequires:	libtool
@@ -32,7 +31,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.20.0
 Requires:	gtk+2 >= 2:2.12.0
-Requires:	libgnomeprintui >= 2.18.1
 Requires:	libgnomeui >= 2.20.0
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
@@ -73,7 +71,6 @@ Summary(zh_CN.UTF-8):	gtkhtml开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gail-devel >= 1.20.0
-Requires:	libgnomeprintui-devel >= 2.18.1
 Requires:	libgnomeui-devel >= 2.20.0
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
