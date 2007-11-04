@@ -34,6 +34,8 @@ Requires:	gtk+2 >= 2:2.12.0
 Requires:	libgnomeui >= 2.20.0
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -151,6 +153,8 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
 
+[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
+	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --all-name
 
 %clean
