@@ -5,12 +5,12 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	gtkhtml 库
 Name:		gtkhtml
-Version:	3.16.1
-Release:	2
+Version:	3.16.2
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	71d2d115e3629a634e115b8c0b0fd5b5
+# Source0-md5:	d81045ef5a391eb078c2890f6229bc96
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
@@ -29,6 +29,7 @@ BuildRequires:	libsoup-devel >= 2.2.100
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	sed >= 4.0
 Requires:	gnome-icon-theme >= 2.20.0
 Requires:	gtk+2 >= 2:2.12.0
 Requires:	libgnomeui >= 2.20.0
@@ -127,6 +128,9 @@ Bibliotecas estáticas para desenvolver aplicações gtkhtml.
 %patch1 -p1
 %patch2 -p1
 
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv po/sr\@{Latn,latin}.po
+
 %build
 %{__glib_gettextize}
 %{__intltoolize}
@@ -153,8 +157,6 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --all-name
 
 %clean
