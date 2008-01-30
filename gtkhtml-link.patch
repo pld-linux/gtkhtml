@@ -1,6 +1,6 @@
-diff -urN gtkhtml-3.14.0/src/Makefile.am gtkhtml-3.14.0.new/src/Makefile.am
---- gtkhtml-3.14.0/src/Makefile.am	2007-03-12 16:44:59.000000000 +0100
-+++ gtkhtml-3.14.0.new/src/Makefile.am	2007-03-13 17:45:16.000000000 +0100
+diff -urN gtkhtml-3.14.0/gtkhtml/Makefile.am gtkhtml-3.14.0.new/gtkhtml/Makefile.am
+--- gtkhtml-3.14.0/gtkhtml/Makefile.am	2007-03-12 16:44:59.000000000 +0100
++++ gtkhtml-3.14.0.new/gtkhtml/Makefile.am	2007-03-13 17:45:16.000000000 +0100
 @@ -207,7 +207,7 @@
  	$(NULL)
  
