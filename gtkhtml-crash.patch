@@ -1,5 +1,5 @@
---- gtkhtml-3.3.0/src/htmlclue.c.crash	2004-08-13 15:52:27.777093526 +0100
-+++ gtkhtml-3.3.0/src/htmlclue.c	2004-08-13 15:52:29.494761807 +0100
+--- gtkhtml-3.3.0/gtkhtml/htmlclue.c.crash	2004-08-13 15:52:27.777093526 +0100
++++ gtkhtml-3.3.0/gtkhtml/htmlclue.c	2004-08-13 15:52:29.494761807 +0100
 @@ -149,7 +149,7 @@
  		last = html_object_prev_not_slave (last);
  
