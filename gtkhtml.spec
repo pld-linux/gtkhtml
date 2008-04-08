@@ -5,12 +5,12 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	3.18.0
+Version:	3.18.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	ec541b078ea9fbb1dd93f77075f77bd8
+# Source0-md5:	e314eba21158afa018d47f63c67000d3
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
@@ -20,7 +20,7 @@ BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.22.0
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-icon-theme >= 2.20.0
+BuildRequires:	gnome-icon-theme >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libbonoboui-devel >= 2.22.0
@@ -31,7 +31,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	sed >= 4.0
-Requires:	gnome-icon-theme >= 2.20.0
+Requires:	gnome-icon-theme >= 2.22.0
 Requires:	gtk+2 >= 2:2.12.8
 Requires:	libgnomeui >= 2.22.01
 Obsoletes:	gal
