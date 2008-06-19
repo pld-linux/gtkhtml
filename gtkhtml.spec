@@ -5,25 +5,27 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	3.18.2
+Version:	3.23.4
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	64f04c0047096ea3962223ac5b676fae
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.23/%{name}-%{version}.tar.bz2
+# Source0-md5:	297d28775b614bb2edfb0d177ef7fdac
 Patch0:		%{name}-pixmap.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-crash.patch
-BuildRequires:	ORBit2-devel >= 1:2.14.9
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gail-devel >= 1.22.0
+BuildRequires:	enchant-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-icon-theme >= 2.22.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
-BuildRequires:	intltool >= 0.37.0
-BuildRequires:	libbonoboui-devel >= 2.22.0
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	iso-codes
+BuildRequires:	libbonobo-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.22.01
 BuildRequires:	libsoup-devel >= 2.4.0
@@ -139,8 +141,8 @@ mv po/sr@{Latn,latin}.po
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
-%{__autoheader}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make} \
@@ -169,22 +171,25 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
+%attr(755,root,root) %{_bindir}/gtkhtml-editor-test
 %attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so.*.*.*
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgtkhtml-3.14.so.19
-%dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/libgnome-gtkhtml-editor-3.14.so
-%{_libdir}/bonobo/servers/GNOME_GtkHTML_Editor-3.14.server
+%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor.so.0
 %{_datadir}/%{name}-3.14
 %{_pixmapsdir}/*.png
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor.so
 %{_libdir}/libgtkhtml-3.14.la
+%{_libdir}/libgtkhtml-editor.la
 %{_includedir}/libgtkhtml-3.14
-%{_datadir}/idl/Editor.idl
 %{_pkgconfigdir}/libgtkhtml-3.14.pc
+%{_pkgconfigdir}/gtkhtml-editor.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgtkhtml-3.14.a
+%{_libdir}/libgtkhtml-editor.a
