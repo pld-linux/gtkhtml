@@ -30,6 +30,7 @@ BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.22.01
 BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
+BuildRequires:	libuuid-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	sed >= 4.0
