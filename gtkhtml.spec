@@ -5,35 +5,32 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	3.18.3
+Version:	3.24.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	4dae02a10f05fbca1cfd3bb5336f9273
-Patch0:		%{name}-pixmap.patch
-Patch1:		%{name}-link.patch
-Patch2:		%{name}-crash.patch
-BuildRequires:	ORBit2-devel >= 1:2.14.9
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	e83404511fb87837b0fac406b1c77400
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gail-devel >= 1.22.0
+BuildRequires:	enchant-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-icon-theme >= 2.22.0
-BuildRequires:	gtk+2-devel >= 2:2.12.8
-BuildRequires:	intltool >= 0.37.0
-BuildRequires:	libbonoboui-devel >= 2.22.0
+BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	iso-codes
+BuildRequires:	libbonobo-devel >= 2.24.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnomeui-devel >= 2.22.01
+BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libsoup-devel >= 2.4.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-BuildRequires:	sed >= 4.0
 Requires:	gnome-icon-theme >= 2.22.0
-Requires:	gtk+2 >= 2:2.12.8
-Requires:	libgnomeui >= 2.22.01
+Requires:	gtk+2 >= 2:2.14.0
+Requires:	libgnomeui >= 2.24.0
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 # sr@Latn vs. sr@latin
@@ -74,10 +71,10 @@ Summary(uk.UTF-8):	Файли, необхідні для розробки про
 Summary(zh_CN.UTF-8):	GtkHTML开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.22.0
-Requires:	gtk+2-devel >= 2:2.12.8
+Requires:	GConf2-devel >= 2.24.0
+Requires:	gtk+2-devel >= 2:2.14.0
 Requires:	libglade2-devel >= 1:2.6.2
-Requires:	libgnomeui-devel >= 2.22.01
+Requires:	libgnomeui-devel >= 2.24.0
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
 
@@ -127,33 +124,23 @@ Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv po/sr@{Latn,latin}.po
 
 %build
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
-%{__autoheader}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
-%{__make} \
-	idldir=%{_datadir}/idl \
-	pkgconfigdir=%{_pkgconfigdir}
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir} \
-	idldir=%{_datadir}/idl
+	DESTDIR=$RPM_BUILD_ROOT
 
 # no static modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
@@ -169,22 +156,24 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
+%attr(755,root,root) %{_bindir}/gtkhtml-editor-test
 %attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so.*.*.*
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgtkhtml-3.14.so.19
-%dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/libgnome-gtkhtml-editor-3.14.so
-%{_libdir}/bonobo/servers/GNOME_GtkHTML_Editor-3.14.server
+%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor.so.0
 %{_datadir}/%{name}-3.14
-%{_pixmapsdir}/*.png
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor.so
 %{_libdir}/libgtkhtml-3.14.la
+%{_libdir}/libgtkhtml-editor.la
 %{_includedir}/libgtkhtml-3.14
-%{_datadir}/idl/Editor.idl
 %{_pkgconfigdir}/libgtkhtml-3.14.pc
+%{_pkgconfigdir}/gtkhtml-editor.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgtkhtml-3.14.a
+%{_libdir}/libgtkhtml-editor.a
