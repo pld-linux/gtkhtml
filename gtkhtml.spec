@@ -73,6 +73,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.24.0
 Requires:	gtk+2-devel >= 2:2.14.0
+Requires:	iso-codes
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgnomeui-devel >= 2.24.0
 Obsoletes:	gal-devel
