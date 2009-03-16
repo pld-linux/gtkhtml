@@ -5,12 +5,12 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	3.24.4
+Version:	3.26.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	7b6786e77dffe9b2db8a27e3d04e70ff
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.26/%{name}-%{version}.tar.bz2
+# Source0-md5:	75d3b6dcd939c2ddcad8aa255ab76f90
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -18,10 +18,10 @@ BuildRequires:	enchant-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-icon-theme >= 2.22.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes
-BuildRequires:	libbonobo-devel >= 2.24.0
+BuildRequires:	libbonoboui-devel >= 2.24.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libsoup-devel >= 2.4.0
@@ -29,7 +29,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.22.0
-Requires:	gtk+2 >= 2:2.14.0
+Requires:	gtk+2 >= 2:2.16.0
 Requires:	libgnomeui >= 2.24.0
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
@@ -72,7 +72,7 @@ Summary(zh_CN.UTF-8):	GtkHTML开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.24.0
-Requires:	gtk+2-devel >= 2:2.14.0
+Requires:	gtk+2-devel >= 2:2.16.0
 Requires:	iso-codes
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgnomeui-devel >= 2.24.0
