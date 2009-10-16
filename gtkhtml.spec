@@ -6,11 +6,13 @@ Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/ре
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
 Version:	3.28.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.28/%{name}-%{version}.tar.bz2
 # Source0-md5:	07bce4da18e99b5c971f0cac6973c944
+# https://bugzilla.gnome.org/show_bug.cgi?id=596282
+Patch0:		%{name}-crash.patch
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
@@ -118,6 +120,7 @@ Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__glib_gettextize}
