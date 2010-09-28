@@ -5,19 +5,19 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	3.30.2
+Version:	3.32.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	590c626e507a2ef9c9026699283d4004
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.32/%{name}-%{version}.tar.bz2
+# Source0-md5:	c9b0ff63447220329734f8ec282a1c2f
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	enchant-devel >= 1.1.7
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-icon-theme >= 2.22.0
-BuildRequires:	gtk+2-devel >= 2:2.18.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.49
 BuildRequires:	libsoup-devel >= 2.26.0
@@ -25,7 +25,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.22.0
-Requires:	gtk+2 >= 2:2.18.0
+Requires:	gtk+2 >= 2:2.20.0
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 # sr@Latn vs. sr@latin
@@ -67,7 +67,7 @@ Summary(zh_CN.UTF-8):	GtkHTML开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.24.0
-Requires:	gtk+2-devel >= 2:2.18.0
+Requires:	gtk+2-devel >= 2:2.20.0
 Requires:	iso-codes >= 0.49
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
@@ -131,6 +131,7 @@ rm -f po/en@shaw.po
 %{__automake}
 %configure \
 	--enable-static \
+	--disable-deprecated-warning-flags \
 	--disable-silent-rules
 %{__make}
 
@@ -156,22 +157,22 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
 %attr(755,root,root) %{_bindir}/gtkhtml-editor-test
 %attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so.*.*.*
-%attr(755,root,root) %{_libdir}/libgtkhtml-editor.so.*.*.*
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor-3.14.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgtkhtml-3.14.so.19
-%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor.so.0
+%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor-3.14.so.0
 %{_datadir}/%{name}-3.14
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so
-%attr(755,root,root) %{_libdir}/libgtkhtml-editor.so
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor-3.14.so
 %{_libdir}/libgtkhtml-3.14.la
-%{_libdir}/libgtkhtml-editor.la
+%{_libdir}/libgtkhtml-editor-3.14.la
 %{_includedir}/libgtkhtml-3.14
 %{_pkgconfigdir}/libgtkhtml-3.14.pc
-%{_pkgconfigdir}/gtkhtml-editor.pc
+%{_pkgconfigdir}/gtkhtml-editor-3.14.pc
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgtkhtml-3.14.a
-%{_libdir}/libgtkhtml-editor.a
+%{_libdir}/libgtkhtml-editor-3.14.a
