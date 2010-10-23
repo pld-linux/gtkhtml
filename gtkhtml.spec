@@ -5,19 +5,19 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	3.32.0
+Version:	3.91.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.32/%{name}-%{version}.tar.bz2
-# Source0-md5:	c9b0ff63447220329734f8ec282a1c2f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.91/%{name}-%{version}.tar.bz2
+# Source0-md5:	a2ebba331b211ef9940b07e04347ec5e
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	enchant-devel >= 1.1.7
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-icon-theme >= 2.22.0
-BuildRequires:	gtk+2-devel >= 2:2.20.0
+BuildRequires:	gtk+2-devel >= 2:2.22.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.49
 BuildRequires:	libsoup-devel >= 2.26.0
@@ -25,7 +25,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.22.0
-Requires:	gtk+2 >= 2:2.20.0
+Requires:	gtk+2 >= 2:2.22.0
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 # sr@Latn vs. sr@latin
@@ -67,7 +67,7 @@ Summary(zh_CN.UTF-8):	GtkHTML开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.24.0
-Requires:	gtk+2-devel >= 2:2.20.0
+Requires:	gtk+2-devel >= 2:2.22.0
 Requires:	iso-codes >= 0.49
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
