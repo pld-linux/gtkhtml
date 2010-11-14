@@ -11,9 +11,11 @@ License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.91/%{name}-%{version}.tar.bz2
 # Source0-md5:	b8100af05cecd0df21f4bb415ac806fb
+Patch0:		gtk3.patch
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	enchant-devel >= 1.1.7
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-icon-theme >= 2.22.0
@@ -118,6 +120,7 @@ Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %{__sed} -i -e 's/^en@shaw//' po/LINGUAS
 rm -f po/en@shaw.po
@@ -130,6 +133,7 @@ rm -f po/en@shaw.po
 %{__autoheader}
 %{__automake}
 %configure \
+	--enable-gtk3 \
 	--enable-static \
 	--disable-deprecated-warning-flags \
 	--disable-silent-rules
@@ -142,7 +146,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # no static modules - shut up check-files
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/{%{name}/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --all-name
 
@@ -156,23 +161,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
 %attr(755,root,root) %{_bindir}/gtkhtml-editor-test
-%attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so.*.*.*
-%attr(755,root,root) %{_libdir}/libgtkhtml-editor-3.14.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-3.14.so.19
-%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor-3.14.so.0
-%{_datadir}/%{name}-3.14
+%attr(755,root,root) %{_libdir}/libgtkhtml-4.0.so.*.*.*
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor-4.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-4.0.so.0
+%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor-4.0.so.0
+%{_datadir}/%{name}-4.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so
-%attr(755,root,root) %{_libdir}/libgtkhtml-editor-3.14.so
-%{_libdir}/libgtkhtml-3.14.la
-%{_libdir}/libgtkhtml-editor-3.14.la
-%{_includedir}/libgtkhtml-3.14
-%{_pkgconfigdir}/libgtkhtml-3.14.pc
-%{_pkgconfigdir}/gtkhtml-editor-3.14.pc
+%attr(755,root,root) %{_libdir}/libgtkhtml-4.0.so
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor-4.0.so
+%{_includedir}/libgtkhtml-4.0
+%{_pkgconfigdir}/libgtkhtml-4.0.pc
+%{_pkgconfigdir}/gtkhtml-editor-4.0.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libgtkhtml-3.14.a
-%{_libdir}/libgtkhtml-editor-3.14.a
+%{_libdir}/libgtkhtml-4.0.a
+%{_libdir}/libgtkhtml-editor-4.0.a
