@@ -1,0 +1,167 @@
+commit aabac45a84a99ccf01a07a5f4b928c4bb0fd26b3
+Author: Matthew Barnes <mbarnes@redhat.com>
+Date:   Mon Nov 8 20:35:41 2010 -0500
+
+    Adapt to new GtkScrollable interface.
+
+diff --git a/gtkhtml/gtkhtml.c b/gtkhtml/gtkhtml.c
+index 0ce2d42..4ff98f7 100644
+--- a/gtkhtml/gtkhtml.c
++++ b/gtkhtml/gtkhtml.c
+@@ -616,33 +616,45 @@ horizontal_scroll_cb (GtkAdjustment *adjustment, gpointer data)
+ }
+ 
+ static void
+-connect_adjustments (GtkHTML *html,
+-		     GtkAdjustment *hadj,
+-		     GtkAdjustment *vadj)
++hadjustment_notify_cb (GtkHTML *html)
+ {
++	GtkScrollable *scrollable;
+ 	GtkAdjustment *hadjustment;
+-	GtkAdjustment *vadjustment;
+ 
+-	hadjustment = gtk_layout_get_hadjustment (GTK_LAYOUT (html));
+-	vadjustment = gtk_layout_get_vadjustment (GTK_LAYOUT (html));
++	scrollable = GTK_SCROLLABLE (html);
++	hadjustment = gtk_scrollable_get_hadjustment (scrollable);
++
++	if (html->hadj_connection > 0)
++		g_signal_handler_disconnect (
++			hadjustment, html->hadj_connection);
+ 
+-	if (html->hadj_connection != 0)
+-		g_signal_handler_disconnect (hadjustment, html->hadj_connection);
++	if (hadjustment != NULL)
++		html->hadj_connection = g_signal_connect (
++			hadjustment, "value_changed",
++			G_CALLBACK (horizontal_scroll_cb), html);
++	else
++		html->hadj_connection = 0;
++}
++
++static void
++vadjustment_notify_cb (GtkHTML *html)
++{
++	GtkScrollable *scrollable;
++	GtkAdjustment *vadjustment;
++
++	scrollable = GTK_SCROLLABLE (html);
++	vadjustment = gtk_scrollable_get_vadjustment (scrollable);
+ 
+ 	if (html->vadj_connection != 0)
+-		g_signal_handler_disconnect (vadjustment, html->vadj_connection);
++		g_signal_handler_disconnect (
++			vadjustment, html->vadj_connection);
+ 
+-	if (vadj != NULL)
+-		html->vadj_connection =
+-			g_signal_connect (vadj, "value_changed", G_CALLBACK (vertical_scroll_cb), (gpointer) html);
++	if (vadjustment != NULL)
++		html->vadj_connection = g_signal_connect (
++			vadjustment, "value_changed",
++			G_CALLBACK (vertical_scroll_cb), html);
+ 	else
+ 		html->vadj_connection = 0;
+-
+-	if (hadj != NULL)
+-		html->hadj_connection =
+-			g_signal_connect (hadj, "value_changed", G_CALLBACK (horizontal_scroll_cb), (gpointer) html);
+-	else
+-		html->hadj_connection = 0;
+ }
+ 
+ 
+@@ -781,7 +793,8 @@ dispose (GObject *object)
+ 		html->ibeam_cursor = NULL;
+ 	}
+ 
+-	connect_adjustments (html, NULL, NULL);
++	gtk_scrollable_set_hadjustment (GTK_SCROLLABLE (html), NULL);
++	gtk_scrollable_set_vadjustment (GTK_SCROLLABLE (html), NULL);
+ 
+ 	if (html->priv) {
+ 		if (html->priv->idle_handler_id != 0) {
+@@ -2444,20 +2457,6 @@ utf8_filter_out_bom (gchar *str) {
+ 	return str;
+ }
+ 
+-static void
+-set_adjustments (GtkLayout     *layout,
+-		 GtkAdjustment *hadj,
+-		 GtkAdjustment *vadj)
+-{
+-	GtkHTML *html = GTK_HTML (layout);
+-
+-	connect_adjustments (html, hadj, vadj);
+-
+-	if (parent_class->set_scroll_adjustments)
+-		(* parent_class->set_scroll_adjustments) (layout, hadj, vadj);
+-}
+-
+-
+ /* Initialization.  */
+ static void
+ set_focus_child (GtkContainer *containter, GtkWidget *w)
+@@ -3240,8 +3239,6 @@ gtk_html_class_init (GtkHTMLClass *klass)
+ 
+ 	container_class->set_focus_child = set_focus_child;
+ 
+-	layout_class->set_scroll_adjustments = set_adjustments;
+-
+ 	html_class->scroll            = scroll;
+ 	html_class->cursor_move       = cursor_move;
+ 	html_class->command           = command;
+@@ -3541,20 +3538,38 @@ gtk_html_init (GtkHTML* html)
+ 	html->priv->im_block_reset = FALSE;
+ 	html->priv->im_pre_len = 0;
+ 
+-	g_signal_connect (G_OBJECT (html->priv->im_context), "commit",
+-			  G_CALLBACK (gtk_html_im_commit_cb), html);
+-	g_signal_connect (G_OBJECT (html->priv->im_context), "preedit_start",
+-			  G_CALLBACK (gtk_html_im_preedit_start_cb), html);
+-	g_signal_connect (G_OBJECT (html->priv->im_context), "preedit_changed",
+-			  G_CALLBACK (gtk_html_im_preedit_changed_cb), html);
+-	g_signal_connect (G_OBJECT (html->priv->im_context), "retrieve_surrounding",
+-			  G_CALLBACK (gtk_html_im_retrieve_surrounding_cb), html);
+-	g_signal_connect (G_OBJECT (html->priv->im_context), "delete_surrounding",
+-			  G_CALLBACK (gtk_html_im_delete_surrounding_cb), html);
+-
+-	html->priv->notify_monospace_font_id =
+-		gconf_client_notify_add (gconf_client_get_default (), "/desktop/gnome/interface/monospace_font_name",
+-					 client_notify_monospace_font, html, NULL, &gconf_error);
++	g_signal_connect (
++		html, "notify::hadjustment",
++		G_CALLBACK (hadjustment_notify_cb), NULL);
++
++	g_signal_connect (
++		html, "notify::vadjustment",
++		G_CALLBACK (vadjustment_notify_cb), NULL);
++
++	g_signal_connect (
++		html->priv->im_context, "commit",
++		G_CALLBACK (gtk_html_im_commit_cb), html);
++
++	g_signal_connect (
++		html->priv->im_context, "preedit_start",
++		G_CALLBACK (gtk_html_im_preedit_start_cb), html);
++
++	g_signal_connect (
++		html->priv->im_context, "preedit_changed",
++		G_CALLBACK (gtk_html_im_preedit_changed_cb), html);
++
++	g_signal_connect (
++		html->priv->im_context, "retrieve_surrounding",
++		G_CALLBACK (gtk_html_im_retrieve_surrounding_cb), html);
++
++	g_signal_connect (
++		html->priv->im_context, "delete_surrounding",
++		G_CALLBACK (gtk_html_im_delete_surrounding_cb), html);
++
++	html->priv->notify_monospace_font_id = gconf_client_notify_add (
++		gconf_client_get_default (),
++		"/desktop/gnome/interface/monospace_font_name",
++		client_notify_monospace_font, html, NULL, &gconf_error);
+ 
+ 	gtk_html_construct (html);
+ }
