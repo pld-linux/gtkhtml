@@ -7,7 +7,7 @@ Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
 # note: 3.9x.x is development version
 Version:	3.32.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.32/%{name}-%{version}.tar.bz2
