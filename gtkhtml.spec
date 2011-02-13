@@ -5,13 +5,12 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	3.91.2
+Version:	3.91.6
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.91/%{name}-%{version}.tar.bz2
-# Source0-md5:	b8100af05cecd0df21f4bb415ac806fb
-Patch0:		gtk3.patch
+# Source0-md5:	a72f8d3eb9c8797dceac1fe3aff1ee3f
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
@@ -120,10 +119,9 @@ Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %{__sed} -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
+%{__rm} po/en@shaw.po
 
 %build
 %{__intltoolize}
@@ -133,7 +131,6 @@ rm -f po/en@shaw.po
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-gtk3 \
 	--enable-static \
 	--disable-deprecated-warning-flags \
 	--disable-silent-rules
@@ -145,11 +142,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# no static modules - shut up check-files
-rm -f $RPM_BUILD_ROOT%{_libdir}/{%{name}/*.{a,la}
-rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
-%find_lang %{name} --all-name
+%find_lang gtkhtml-4.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -157,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files -f gtkhtml-4.0.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
 %attr(755,root,root) %{_bindir}/gtkhtml-editor-test
