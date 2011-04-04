@@ -5,28 +5,28 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-# note: 3.9x.x is development version
-Version:	3.32.2
+Version:	4.0.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/3.32/%{name}-%{version}.tar.bz2
-# Source0-md5:	3e1a1d56beef147aa0a95e5ebbf61c8c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/4.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	5aa2533bf9b72bb33f3ae80ec90f0f5d
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	enchant-devel >= 1.1.7
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-icon-theme >= 2.22.0
-BuildRequires:	gtk+2-devel >= 2:2.20.0
+BuildRequires:	gtk+3-devel >= 3.0.2
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	iso-codes >= 0.49
 BuildRequires:	libsoup-devel >= 2.26.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gnome-icon-theme >= 2.22.0
-Requires:	gtk+2 >= 2:2.20.0
+Requires:	gtk+3 >= 3.0.2
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
 # sr@Latn vs. sr@latin
@@ -68,7 +68,7 @@ Summary(zh_CN.UTF-8):	GtkHTML开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.24.0
-Requires:	gtk+2-devel >= 2:2.20.0
+Requires:	gtk+3-devel >= 3.0.2
 Requires:	iso-codes >= 0.49
 Obsoletes:	gal-devel
 Obsoletes:	libgtkhtml20-devel
@@ -120,9 +120,6 @@ Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 %prep
 %setup -q
 
-%{__sed} -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
-
 %build
 %{__intltoolize}
 %{__libtoolize}
@@ -142,10 +139,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# no static modules - shut up check-files
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
-%find_lang %{name} --all-name
+%find_lang gtkhtml-4.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -153,27 +149,25 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files -f gtkhtml-4.0.lang
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README* TODO
 %attr(755,root,root) %{_bindir}/gtkhtml-editor-test
-%attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so.*.*.*
-%attr(755,root,root) %{_libdir}/libgtkhtml-editor-3.14.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-3.14.so.19
-%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor-3.14.so.0
-%{_datadir}/%{name}-3.14
+%attr(755,root,root) %{_libdir}/libgtkhtml-4.0.so.*.*.*
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor-4.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-4.0.so.0
+%attr(755,root,root) %ghost %{_libdir}/libgtkhtml-editor-4.0.so.0
+%{_datadir}/%{name}-4.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so
-%attr(755,root,root) %{_libdir}/libgtkhtml-editor-3.14.so
-%{_libdir}/libgtkhtml-3.14.la
-%{_libdir}/libgtkhtml-editor-3.14.la
-%{_includedir}/libgtkhtml-3.14
-%{_pkgconfigdir}/libgtkhtml-3.14.pc
-%{_pkgconfigdir}/gtkhtml-editor-3.14.pc
+%attr(755,root,root) %{_libdir}/libgtkhtml-4.0.so
+%attr(755,root,root) %{_libdir}/libgtkhtml-editor-4.0.so
+%{_includedir}/libgtkhtml-4.0
+%{_pkgconfigdir}/libgtkhtml-4.0.pc
+%{_pkgconfigdir}/gtkhtml-editor-4.0.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libgtkhtml-3.14.a
-%{_libdir}/libgtkhtml-editor-3.14.a
+%{_libdir}/libgtkhtml-4.0.a
+%{_libdir}/libgtkhtml-editor-4.0.a
