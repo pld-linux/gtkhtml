@@ -142,9 +142,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# no static modules - shut up check-files
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
-
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --all-name
