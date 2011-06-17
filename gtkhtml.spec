@@ -143,7 +143,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # no static modules - shut up check-files
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/%{name}/*.{a,la}
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --all-name
 
@@ -167,8 +169,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtkhtml-3.14.so
 %attr(755,root,root) %{_libdir}/libgtkhtml-editor-3.14.so
-%{_libdir}/libgtkhtml-3.14.la
-%{_libdir}/libgtkhtml-editor-3.14.la
 %{_includedir}/libgtkhtml-3.14
 %{_pkgconfigdir}/libgtkhtml-3.14.pc
 %{_pkgconfigdir}/gtkhtml-editor-3.14.pc
