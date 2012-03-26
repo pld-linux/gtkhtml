@@ -5,18 +5,18 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	4.2.3
+Version:	4.4.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/4.2/%{name}-%{version}.tar.xz
-# Source0-md5:	cc06ecf5e39dc4c3125a44964038448f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/4.4/%{name}-%{version}.tar.xz
+# Source0-md5:	23a68c1310638d768e9623faa655d6df
 BuildRequires:	autoconf >= 2.58
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	enchant-devel >= 1.1.7
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-icon-theme >= 2.22.0
+BuildRequires:	gnome-icon-theme >= 3.0.0
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+3-devel >= 3.0.2
 BuildRequires:	intltool >= 0.40.0
@@ -28,7 +28,7 @@ BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-proto-xproto-devel
 BuildRequires:	xz
-Requires:	gnome-icon-theme >= 2.22.0
+Requires:	gnome-icon-theme >= 3.0.0
 Requires:	gtk+3 >= 3.0.2
 Obsoletes:	gal
 Obsoletes:	libgtkhtml20
@@ -70,7 +70,6 @@ Summary(uk.UTF-8):	Файли, необхідні для розробки про
 Summary(zh_CN.UTF-8):	GtkHTML开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.24.0
 Requires:	gtk+3-devel >= 3.0.2
 Requires:	iso-codes >= 0.49
 Obsoletes:	gal-devel
@@ -132,7 +131,6 @@ Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 %{__automake}
 %configure \
 	--enable-static \
-	--disable-deprecated-warning-flags \
 	--disable-silent-rules
 %{__make}
 
