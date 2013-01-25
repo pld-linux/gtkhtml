@@ -5,12 +5,12 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	4.6.1
+Version:	4.6.2
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/4.6/%{name}-%{version}.tar.xz
-# Source0-md5:	bd914a919c7b8470787feb54455fb2c6
+# Source0-md5:	592fd2ed780445172779deaa66ace444
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.10.0
@@ -28,6 +28,8 @@ BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-proto-xproto-devel
 BuildRequires:	xz
+Requires:	cairo >= 1.10.0
+Requires:	enchant >= 1.1.7
 Requires:	gnome-icon-theme >= 3.0.0
 Requires:	gtk+3 >= 3.0.2
 Obsoletes:	gal
@@ -70,6 +72,8 @@ Summary(uk.UTF-8):	Файли, необхідні для розробки про
 Summary(zh_CN.UTF-8):	GtkHTML开发库
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	cairo-devel >= 1.10.0
+Requires:	enchant-devel >= 1.1.7
 Requires:	gtk+3-devel >= 3.0.2
 Requires:	iso-codes >= 0.49
 Obsoletes:	gal-devel
@@ -152,7 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gtkhtml-4.0.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README* TODO
+%doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/gtkhtml-editor-test
 %attr(755,root,root) %{_libdir}/libgtkhtml-4.0.so.*.*.*
 %attr(755,root,root) %{_libdir}/libgtkhtml-editor-4.0.so.*.*.*
