@@ -15,7 +15,7 @@ BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	enchant-devel >= 1.1.7
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+3-devel >= 3.2.0
 BuildRequires:	intltool >= 0.40.0
