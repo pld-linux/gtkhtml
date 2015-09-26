@@ -5,12 +5,12 @@ Summary(ru.UTF-8):	GtkHTML - это библиотека рендеринга/р
 Summary(uk.UTF-8):	GtkHTML - це бібліотека рендерингу/редагування HTML
 Summary(zh_CN.UTF-8):	GtkHTML 库
 Name:		gtkhtml
-Version:	4.8.5
-Release:	2
+Version:	4.10.0
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/4.8/%{name}-%{version}.tar.xz
-# Source0-md5:	a146d2ffdf52f6aa25badb75436b6f4d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtkhtml/4.10/%{name}-%{version}.tar.xz
+# Source0-md5:	a8538daed73de3fb5c7747d05139ef79
 BuildRequires:	autoconf >= 2.58
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.10.0
