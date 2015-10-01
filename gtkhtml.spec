@@ -153,7 +153,7 @@ Plik katalogu GtkHTML dla Glade.
 %configure \
 	--enable-static \
 	--disable-silent-rules \
-	%{?with_glade:--with-glade-catalog} \
+	%{?with_glade:--with-glade-catalog}
 %{__make}
 
 %install
@@ -163,6 +163,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%if %{with glade}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/glade/modules/libglade-gtkhtml-editor.{la,a}
+%endif
 
 %find_lang gtkhtml-4.0
 
