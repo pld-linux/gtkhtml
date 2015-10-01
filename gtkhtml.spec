@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	glade		# Glade catalog
+
 Summary:	GtkHTML library
 Summary(pl.UTF-8):	Biblioteka GtkHTML
 Summary(pt_BR.UTF-8):	Biblioteca GtkHTML
@@ -16,6 +20,7 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	cairo-devel >= 1.10.0
 BuildRequires:	enchant-devel >= 1.1.7
 BuildRequires:	gettext-tools
+%{?with_glade:BuildRequires:	glade-devel >= 3.0}
 BuildRequires:	gsettings-desktop-schemas-devel
 BuildRequires:	gtk+3-devel >= 3.2.0
 BuildRequires:	intltool >= 0.40.0
@@ -122,6 +127,19 @@ Biblioteki statyczne GtkHTML.
 %description static -l pt_BR.UTF-8
 Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 
+%package glade
+Summary:	GtkHTML catalog file for Glade
+Summary(pl.UTF-8):	Plik katalogu GtkHTML dla Glade
+Group:		X11/Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	glade >= 3.0
+
+%description glade
+GtkHTML catalog file for Glade.
+
+%description glade -l pl.UTF-8
+Plik katalogu GtkHTML dla Glade.
+
 %prep
 %setup -q
 
@@ -134,7 +152,8 @@ Bibliotecas estáticas para desenvolver aplicações GtkHTML.
 %{__automake}
 %configure \
 	--enable-static \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{?with_glade:--with-glade-catalog} \
 %{__make}
 
 %install
@@ -175,3 +194,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libgtkhtml-4.0.a
 %{_libdir}/libgtkhtml-editor-4.0.a
+
+%if %{with glade}
+%files glade
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/glade/modules/libglade-gtkhtml-editor.so
+%{_datadir}/glade/catalogs/gtkhtml-editor.xml
+%endif
